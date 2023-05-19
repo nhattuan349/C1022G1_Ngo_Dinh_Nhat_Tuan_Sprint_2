@@ -15,7 +15,7 @@
     <link rel="icon" href="https://laforce.vn/wp-content/uploads/2018/05/logo-LaForce11.png" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" media="all" href="https://laforce.vn/wp-content/themes/banhang/style.css" />
     <meta name="facebook-domain-verification" content="iu8x5rvhnfc2lj47zshfkgvha0bstr" />
-    <script type="text/javascript" src="https://laforce.vn/wp-includes/js/jquery/jquery.min.js?ver=3.5.1" id="jquery-core-js"></script>
+    <!--  <script type="text/javascript" src="https://laforce.vn/wp-includes/js/jquery/jquery.min.js?ver=3.5.1" id="jquery-core-js"></script>-->
     <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
 
     <script data-no-defer="1" data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer>
@@ -143,7 +143,7 @@
         }
 
         /*:where(.is-layout-flex) {*/
-        /*    gap: 0.5em;*/
+        /*  gap: 0.5em;*/
         /*}*/
 
         body .is-layout-flow>.alignleft {
@@ -180,15 +180,16 @@
             margin-right: auto !important;
         }
 
-        /*body .is-layout-constrained> :where(:not(.alignleft):not(.alignright):not(.alignfull)) {*/
-        /*    max-width: var(--wp--style--global--content-size);*/
-        /*    margin-left: auto !important;*/
-        /*    margin-right: auto !important;*/
-        /*}*/
+        body .is-layout-constrained > *:not(.alignleft):not(.alignright):not(.alignfull) {
+            max-width: 800px;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
 
-        /*body .is-layout-constrained>.alignwide {*/
-        /*    max-width: var(--wp--style--global--wide-size);*/
-        /*}*/
+        body .is-layout-constrained > .alignwide {
+            max-width: 1200px;
+        }
+
 
         body .is-layout-flex {
             display: flex;
@@ -203,9 +204,11 @@
             margin: 0;
         }
 
-        /*:where(.wp-block-columns.is-layout-flex) {*/
-        /*    gap: 2em;*/
-        /*}*/
+        .wp-block-columns.is-layout-flex,
+        .wp-block-columns .is-layout-flex {
+            gap: 2em;
+        }
+
 
         .has-black-color {
             color: var(--wp--preset--color--black) !important;
@@ -415,13 +418,19 @@
             font-size: var(--wp--preset--font-size--x-large) !important;
         }
 
-        /*.wp-block-navigation a:where(:not(.wp-element-button)) {*/
-        /*    color: inherit;*/
-        /*}*/
+        .wp-block-navigation a:not(.wp-element-button) {
+            color: inherit;
+        }
 
-        /*:where(.wp-block-columns.is-layout-flex) {*/
-        /*    gap: 2em;*/
-        /*}*/
+
+        .wp-block-columns.is-layout-flex{
+            gap: 2em;
+        }
+
+        .wp-block-columns .is-layout-flex {
+            gap: 2em;
+        }
+
 
         .wp-block-pullquote {
             font-size: 1.5em;
@@ -432,7 +441,7 @@
     <link rel='stylesheet' id='contact-form-7-css' href='https://laforce.vn/wp-content/plugins/contact-form-7/includes/css/styles.css' type='text/css' media='all' />
     <link rel='stylesheet' id='kk-star-ratings-css' href='https://laforce.vn/wp-content/plugins/kk-star-ratings/src/core/public/css/kk-star-ratings.min.css' type='text/css' media='all' />
     <link rel='stylesheet' id='siteorigin-panels-front-css' href='https://laforce.vn/wp-content/plugins/siteorigin-panels/css/front-flex.min.css' type='text/css' media='all' />
-    <script type='text/javascript' src='https://laforce.vn/wp-includes/js/jquery/jquery.min.js'></script>
+    <script type='text/javascript' src='https://laforce.vn/wp-includes/js/jquery/jquery.min.js' id='jquery-core-js'></script>
     <script type='text/javascript' data-pagespeed-no-defer src='https://laforce.vn/wp-content/plugins/cleantalk-spam-protect/js/apbct-public-bundle.min.js' id='ct_public_functions-js'></script>
     <link rel="https://api.w.org/" href="https://laforce.vn/wp-json/" />
     <link rel="alternate" type="application/json" href="https://laforce.vn/wp-json/wp/v2/pages/21578" />
@@ -441,19 +450,60 @@
     <link rel='shortlink' href='https://laforce.vn/' />
     <link rel="alternate" type="application/json+oembed" href="https://laforce.vn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Flaforce.vn%2F" />
     <link rel="alternate" type="text/xml+oembed" href="https://laforce.vn/wp-json/oembed/1.0/embed?url=https%3A%2F%2Flaforce.vn%2F&#038;format=xml" />
+    <!--  <style type='text/css'>-->
+    <!--    .nav__primary::before {-->
+    <!--      content: '';-->
+    <!--      position: absolute;-->
+    <!--      top: 0;-->
+    <!--      left: 0;-->
+    <!--      width: 100%;-->
+    <!--      height: 100%;-->
+    <!--      background: rgba(149, 149, 149, 0.5);-->
+    <!--      z-index: -1;-->
+    <!--    }-->
 
-<!--    <style type='text/css'>-->
-<!--        .header {-->
-<!--            background-image: url(h);-->
-<!--            background-repeat: h;-->
-<!--            background-position: h;-->
-<!--            background-attachment: h;-->
-<!--        }-->
+    <!--    .nav__primary ul {-->
+    <!--      position: relative;-->
+    <!--      z-index: 1;-->
+    <!--    }-->
 
-<!--        .header {-->
-<!--            background-color: h-->
-<!--        }-->
-<!--    </style> <noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>-->
+    <!--    .nav__primary ul li {-->
+    <!--      /* Các điều chỉnh cho các mục menu */-->
+    <!--    }-->
+    <!--  </style>-->
+
+    <style type='text/css'>
+        .header {
+            background: #959595;
+            opacity: 0.5;
+        }
+
+        .header-nav {
+            opacity: 1;
+        }
+
+        .woocommerce-product-gallery {
+            opacity: 1 !important;
+        }
+    </style>
+    <noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+
+
+    <!--    <style type='text/css'>-->
+    <!--      .header {-->
+    <!--        background: #959595;-->
+    <!--        opacity: 0.5;-->
+    <!--      }-->
+
+    <!--      .header {-->
+    <!--        background-color: #959595;-->
+    <!--      }-->
+
+    <!--      .woocommerce-product-gallery {-->
+    <!--        opacity: 1 !important;-->
+    <!--      }-->
+
+    <!--    </style> <noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>-->
 
     <style type='text/css'>
         .logo_h__txt,
@@ -672,7 +722,7 @@
     </script>
     <!-- End Google Tag Manager -->
 </head>
-</div>
+
 
 <body data-rsssl=1 class="home page-template page-template-page-template-home page-template-page-template-home-php page page-id-21578 theme-creativeframework siteorigin-panels siteorigin-panels-before-js siteorigin-panels-home woocommerce-no-js">
 <!-- Google Tag Manager (noscript) -->
@@ -757,8 +807,8 @@
                         <!-- END LOGO -->
                     </div>
                     <!-- BEGIN MAIN NAVIGATION -->
-                    <nav class="nav nav__primary clearfix">
-                        <ul id="topnav" class="sf-menu">
+                    <nav class="nav nav__primary clearfix" style="display: flex;justify-content: center;">
+                        <ul id="topnav" class="sf-menu" style="display: flex;justify-content: center;">
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-21578 current_page_item menu-item-21666"><a href="https://laforce.vn/" aria-current="page">Trang chủ</a></li>
                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-21652"><a href="https://laforce.vn/danh-muc-san-pham/">Sản phẩm</a>
                                 <ul class="sub-menu">
@@ -847,701 +897,12 @@
                 </div>
             </div>
         </header>
-        <div class="motopress-wrapper content-holder clearfix">
-            <div class="banner_widget">
-                <div id="metaslider-id-82" style="width: 100%;" class="ml-slider-3-30-1 metaslider metaslider-flex metaslider-82 ml-slider nav-hidden">
-                    <div id="metaslider_container_82">
-                        <div id="metaslider_82">
-                            <ul aria-live="polite" class="slides">
-                                <li style="display: block; width: 100%;" class="slide-22216 ms-image"><img src="https://laforce.vn/wp-content/uploads/2022/05/BN-Homepge-desktop.jpg" height="1020" width="1920" alt="" class="slider-82 slide-22216" />
-                                    <div class="caption-wrap">
-                                        <div class="caption">
-                                            <div class="title"><small>New collection</small>
-                                                <h3>Lookbook Thu Đông 2023</h3>
-                                                <h4>How to be a gentleman</h4>
-                                            </div>
-                                            <div class="desc">Ấn tượng, lịch lãm và đầy nam tính cùng với những xu hướng phụ kiện Thu Đông 2023 của LaForce</div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
 
-                    </div>
-                </div>
-            </div>
-
-            <div id="post-21578" class="page post-21578 type-page status-publish has-post-thumbnail hentry">
-
-                <div id="pl-21578" class="panel-layout">
-                    <div id="pg-21578-0" class="panel-grid panel-has-style">
-                        <div id="danhmucsanpham" class="panel-row-style panel-row-style-for-21578-0">
-                            <div id="pgc-21578-0-0" class="panel-grid-cell">
-                                <div id="panel-21578-0-0-0" class="so-panel widget widget_creativecate my_posts_type_widget panel-first-child panel-last-child" data-index="0">
-                                    <div class="panel-widget-style panel-widget-style-for-21578-0-0-0">
-                                        <ul class='cate-list unstyled'>
-
-                                            <li class="list_item_1  ">
-
-                                                <figure class="featured-thumbnail thumbnail">
-                                                    <a href="https://laforce.vn/giay-da-nam/" title="Giày da nam">
-                                                        <img class="lazyload" data-src="https://laforce.vn/wp-content/uploads/2018/09/giay-da-nam.png" width="" height="" title="Giày da nam" alt="Giày da nam" />
-                                                    </a>
-                                                </figure>
-                                                <!------------>
-                                                <div class="cate_list_title">
-                                                    <a class="cate-title" href="https://laforce.vn/giay-da-nam/" rel="bookmark" title="Giày da nam">
-                                                        <h2>Giày da nam</h2>
-                                                        <div class="count_product">
-                                                            <span>244</span> sản phẩm
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div class="description">
-                                                </div>
-                                                <!------------>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="pgc-21578-0-1" class="panel-grid-cell">
-                                <div id="panel-21578-0-1-0" class="so-panel widget widget_siteorigin-panels-builder panel-first-child panel-last-child" data-index="1">
-                                    <div id="pl-w64659fc802902" class="panel-layout">
-                                        <div id="pg-w64659fc802902-0" class="panel-grid panel-no-style">
-                                            <div id="pgc-w64659fc802902-0-0" class="panel-grid-cell">
-                                                <div id="panel-w64659fc802902-0-0-0" class="so-panel widget widget_creativecate my_posts_type_widget panel-first-child panel-last-child" data-index="0">
-                                                    <ul class='cate-list unstyled'>
-
-                                                        <li class="list_item_1  ">
-
-                                                            <figure class="featured-thumbnail thumbnail">
-                                                                <a href="https://laforce.vn/vi-da-nam/" title="Ví da nam">
-                                                                    <img class="lazyload" data-src="https://laforce.vn/wp-content/uploads/2018/09/vi-da-nam.png" width="" height="" title="Ví da nam" alt="Ví da nam" />
-                                                                </a>
-                                                            </figure>
-                                                            <!------------>
-                                                            <div class="cate_list_title">
-                                                                <a class="cate-title" href="https://laforce.vn/vi-da-nam/" rel="bookmark" title="Ví da nam">
-                                                                    <h2>Ví da nam</h2>
-                                                                    <div class="count_product">
-                                                                        <span>288</span> sản phẩm
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                            <div class="description">
-                                                            </div>
-                                                            <!------------>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div id="pgc-w64659fc802902-0-1" class="panel-grid-cell">
-                                                <div id="panel-w64659fc802902-0-1-0" class="so-panel widget widget_creativecate my_posts_type_widget panel-first-child panel-last-child" data-index="1">
-                                                    <div class="panel-widget-style panel-widget-style-for-w64659fc802902-0-1-0">
-                                                        <ul class='cate-list unstyled'>
-
-                                                            <li class="list_item_1  ">
-
-                                                                <figure class="featured-thumbnail thumbnail">
-                                                                    <a href="https://laforce.vn/tui-xach-nam/" title="Túi xách nam">
-                                                                        <img class="lazyload" data-src="https://laforce.vn/wp-content/uploads/2018/11/anh-danh-muc-tui-xach-nam.png" width="" height="" title="Túi xách nam" alt="Túi xách nam" />
-                                                                    </a>
-                                                                </figure>
-                                                                <!------------>
-                                                                <div class="cate_list_title">
-                                                                    <a class="cate-title" href="https://laforce.vn/tui-xach-nam/" rel="bookmark" title="Túi xách nam">
-                                                                        <h2>Túi xách nam</h2>
-                                                                        <div class="count_product">
-                                                                            <span>44</span> sản phẩm
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="description">
-                                                                </div>
-                                                                <!------------>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div id="pg-w64659fc802902-1" class="panel-grid panel-no-style">
-                                            <div id="pgc-w64659fc802902-1-0" class="panel-grid-cell">
-                                                <div id="panel-w64659fc802902-1-0-0" class="so-panel widget widget_creativecate my_posts_type_widget panel-first-child panel-last-child" data-index="2">
-                                                    <div class="panel-widget-style panel-widget-style-for-w64659fc802902-1-0-0">
-                                                        <ul class='cate-list unstyled'>
-
-                                                            <li class="list_item_1  ">
-
-                                                                <figure class="featured-thumbnail thumbnail">
-                                                                    <a href="https://laforce.vn/that-lung-nam/" title="Thắt lưng nam">
-                                                                        <img class="lazyload" data-src="https://laforce.vn/wp-content/uploads/2018/11/anh-danh-muc-that-lung-nam.png" width="" height="" title="Thắt lưng nam" alt="Thắt lưng nam" />
-                                                                    </a>
-                                                                </figure>
-                                                                <!------------>
-                                                                <div class="cate_list_title">
-                                                                    <a class="cate-title" href="https://laforce.vn/that-lung-nam/" rel="bookmark" title="Thắt lưng nam">
-                                                                        <h2>Thắt lưng nam</h2>
-                                                                        <div class="count_product">
-                                                                            <span>577</span> sản phẩm
-                                                                        </div>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="description">
-                                                                </div>
-                                                                <!------------>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="pgc-w64659fc802902-1-1" class="panel-grid-cell">
-                                                <div id="panel-w64659fc802902-1-1-0" class="so-panel widget widget_black-studio-tinymce widget_black_studio_tinymce panel-first-child panel-last-child" data-index="3">
-                                                    <div class="view_more panel-widget-style panel-widget-style-for-w64659fc802902-1-1-0">
-                                                        <div class="textwidget">
-                                                            <p style="text-align: center;"><a href="/danh-muc-san-pham">Xem thêm</a></p>
-                                                            <h2 style="text-align: center;">Các sản phẩm khác</h2>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="pg-21578-1" class="panel-grid panel-has-style">
-                        <div id="gioithieu_home" class="panel-row-style panel-row-style-for-21578-1">
-                            <div id="pgc-21578-1-0" class="panel-grid-cell">
-                                <div id="panel-21578-1-0-0" class="widget_text so-panel widget widget_custom_html panel-first-child panel-last-child" data-index="2">
-                                    <div  class="widget_text panel-widget-style panel-widget-style-for-21578-1-0-0">
-                                        <div class="widget-title"><span><label>01</label> <span>Về sản phẩm</span></span>
-                                        </div>
-                                        <div class="textwidget custom-html-widget"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="pgc-21578-1-1" class="panel-grid-cell">
-                                <div id="panel-21578-1-1-0" class="so-panel widget widget_black-studio-tinymce widget_black_studio_tinymce panel-first-child panel-last-child" data-index="3">
-                                    <div class="widget-title"><span><small>Về chất liệu</small><h2>Chất liệu da nguyên tấm</h2></span></div>
-                                    <div class="textwidget">
-                                        <p style="text-align: justify;">Tất cả các sản phẩm của LaForce được làm từ chất liệu da nguyên tấm, đây là phần da đắt tiền nhất lấy từ lớp da trên cùng của con bò, giữ lại được tất cả kết cấu nguyên thủy của da, mang đến chất lượng tốt nhất, chính vì thế
-                                            chúng rất bền và khó bị hỏng.</p>
-                                        <p style="text-align: justify;">Đó cũng là điểm khác biệt lớn nhất trong sản phẩm của LaForce so với các sản phẩm làm bằng da thông thường khác. Đối với những sản phẩm da thông thường, bề mặt chúng được phủ lên một lớp da tổng hợp nên rất dễ bị nổ hoặc gấp
-                                            nếp.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="pgc-21578-1-2" class="panel-grid-cell">
-                                <div id="panel-21578-1-2-0" class="so-panel widget widget_black-studio-tinymce widget_black_studio_tinymce panel-first-child panel-last-child" data-index="4">
-                                    <div class="textwidget">
-                                        <p><img class="lazyload alignnone size-full wp-image-24361" data-src="https://laforce.vn/wp-content/uploads/2018/06/chatlieuda.jpg" alt="" width="585" height="603" /></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="pg-21578-2" class="panel-grid panel-has-style">
-                        <div id="quitrinh_home" class="panel-row-style panel-row-style-for-21578-2">
-                            <div id="pgc-21578-2-0" class="panel-grid-cell">
-                                <div id="panel-21578-2-0-0" class="so-panel widget widget_black-studio-tinymce widget_black_studio_tinymce panel-first-child panel-last-child" data-index="5">
-                                    <div class="textwidget">
-                                        <p><img class="lazyload alignnone size-full wp-image-29746" data-src="https://laforce.vn/wp-content/uploads/2018/12/cach-tao-ra-sp.jpg" alt="" width="885" height="600" /></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="pgc-21578-2-1" class="panel-grid-cell panel-grid-cell-mobile-last">
-                                <div id="panel-21578-2-1-0" class="so-panel widget widget_black-studio-tinymce widget_black_studio_tinymce panel-first-child panel-last-child" data-index="6">
-                                    <div class="widget-title"><span><small>Quy trình</small><h2>Cách tạo ra 1 sản phẩm</h2></span></div>
-                                    <div class="textwidget">
-                                        <p style="text-align: justify;">Chế tạo những sản phẩm từ da nguyên tấm là cả một nghệ thuật. Chúng được áp dụng những kĩ thuật truyền thống kết hợp với công nghệ hiện đại nhất. Cả quá trình được diễn ra khép kín và không hề có ảnh hưởng từ môi trường bên
-                                            ngoài. Khi sản phẩm đã được chế xuất, chúng sẽ được hoàn thiện thông qua bàn tay khéo léo của những người thợ có kinh nghiệm lâu năm. Chính vì thế, bạn có thể cảm nhận rõ được chất liệu của sản phẩm qua những đặc tính của
-                                            sản phẩm như màu sắc ẩn sâu bên trong sản phẩm, khác với những đồ da rẻ tiền.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="pgc-21578-2-2" class="panel-grid-cell panel-grid-cell-empty"></div>
-                        </div>
-                    </div>
-                    <div id="pg-21578-3" class="panel-grid panel-has-style">
-                        <div id="sanpham_home" class="panel-row-style panel-row-style-for-21578-3">
-                            <div id="pgc-21578-3-0" class="panel-grid-cell">
-                                <div id="panel-21578-3-0-0" class="so-panel widget widget_black-studio-tinymce widget_black_studio_tinymce panel-first-child panel-last-child" data-index="7">
-                                    <div class="widget-title"><span><small>Sản phẩm</small><h2>Thiết kế độc đáo —sáng tạo</h2></span></div>
-                                    <div class="textwidget">
-                                        <p style="text-align: justify;">LaForce mang đến cho người dùng những trải nghiệm tuyệt vời về các sản phẩm. Thiết kế độc đáo và đầy sáng tạo làm nổi bật tính cách của sản phẩm khiến bất cứ khách hàng nào cũng muốn sở hữu. Những ý tưởng thiết kế tuyệt vời
-                                            được phối hợp nhuần nhuyễn qua bàn tay của những thợ thủ công có nhiều năm kinh nghiệm cùng với những chất liệu xa xỉ, cao cấp để tạo ra những sản phẩm không những chỉ tốt về chất lượng mà còn hợp thời trang, thẩm mỹ của
-                                            người dùng.</p>
-                                        <p style="text-align: justify;">LaForce luôn cập nhật, phát triển theo xu hướng thời trang thế giới nhưng vẫn luôn giữ lại những nét đẹp trong thiết kế để tạo cho khách hàng những sản phẩm không chỉ sang trọng, đẳng cấp mà còn hợp thời trang, có tính thẩm
-                                            mỹ.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="pgc-21578-3-1" class="panel-grid-cell">
-                                <div id="panel-21578-3-1-0" class="so-panel widget widget_black-studio-tinymce widget_black_studio_tinymce panel-first-child panel-last-child" data-index="8">
-                                    <div class="textwidget">
-                                        <p><img class="lazyload alignnone size-full wp-image-27202" data-src="https://laforce.vn/wp-content/uploads/2018/09/Thiet-ke-sang-tao.jpg" alt="Thiet-ke-sang-tao" width="500" height="600" /></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="pg-21578-4" class="panel-grid panel-has-style">
-                        <div id="gioithieu_sanpham" class="panel-row-style panel-row-style-for-21578-4">
-                            <div id="pgc-21578-4-0" class="panel-grid-cell">
-                                <div id="panel-21578-4-0-0" class="widget_text so-panel widget widget_custom_html panel-first-child" data-index="9">
-                                    <div id="title_custom" class="widget_text panel-widget-style panel-widget-style-for-21578-4-0-0">
-                                        <div class="widget-title"><span><label>02</label> <span>Về La-force</span></span>
-                                        </div>
-                                        <div class="textwidget custom-html-widget"></div>
-                                    </div>
-                                </div>
-                                <div id="panel-21578-4-0-1" class="so-panel widget widget_black-studio-tinymce widget_black_studio_tinymce panel-last-child" data-index="10">
-                                    <div class="widget-title"><span><h2>Chất liệu 100% da bò nhập khẩu</h2></span></div>
-                                    <div class="textwidget">
-                                        <p style="text-align: justify;">LaForce với hệ thống 23 cửa hàng trên toàn quốc và tiếp tục mở rộng trong tương lai, chúng tôi mong muốn sẽ mang đến những sản phẩm đồ da chất lượng nhất cho khách hàng.</p>
-                                        <p style="text-align: justify;">LaForce – sản phẩm đồ da của người Việt.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="pg-21578-5" class="panel-grid panel-has-style">
-                        <div id="bosuutap" class="panel-row-style panel-row-style-for-21578-5">
-                            <div id="pgc-21578-5-0" class="panel-grid-cell">
-                                <div id="panel-21578-5-0-0" class="so-panel widget widget_black-studio-tinymce widget_black_studio_tinymce panel-first-child panel-last-child" data-index="11">
-                                    <div class="widget-title"><span><h3><a href=https://laforce.vn/lookbook/>LOOKBOOK</a></h3></span></div>
-                                    <div class="textwidget">
-                                        <p>
-                                        <div class="lookbook_home_template ">
-                                            <ul class='post-list unstyled'>
-                                                <li class="list_item_1 col-xs-12 col-sm-6 col-md-4">
-                                                    <div class="lookbook_item">
-                                                        <figure class="featured-thumbnail thumbnail">
-                                                            <a href="https://laforce.vn/lookbook/bo-suu-tap-tui-xach-nam-2021/"><img class="lazyload" data-src="https://laforce.vn/wp-content/uploads/2020/10/Bo-suu-tap-tui-xach.jpg" width="" height="" alt="All Bags Collection for Men in 2023" /></a>
-                                                        </figure>
-                                                        <div class="post-list_h"><a class="post-title" href="https://laforce.vn/lookbook/bo-suu-tap-tui-xach-nam-2021/" rel="bookmark" title="All Bags Collection for Men in 2023">All Bags Collection for Men in 2023</a></div>
-                                                    </div>
-                                                </li>
-                                                <li class="list_item_2 col-xs-12 col-sm-6 col-md-4">
-                                                    <div class="lookbook_item">
-                                                        <figure class="featured-thumbnail thumbnail">
-                                                            <a href="https://laforce.vn/lookbook/bo-suu-tap-vi-cam-tay-2021/"><img class="lazyload" data-src="https://laforce.vn/wp-content/uploads/2020/10/Bo-suu-tap-vi-cam-tay.jpg" width="" height="" alt="Clutch Collection for Men" /></a>
-                                                        </figure>
-                                                        <div class="post-list_h"><a class="post-title" href="https://laforce.vn/lookbook/bo-suu-tap-vi-cam-tay-2021/" rel="bookmark" title="Clutch Collection for Men">Clutch Collection for Men</a></div>
-                                                    </div>
-                                                </li>
-                                                <li class="list_item_3 col-xs-12 col-sm-6 col-md-4">
-                                                    <div class="lookbook_item">
-                                                        <figure class="featured-thumbnail thumbnail">
-                                                            <a href="https://laforce.vn/lookbook/bo-suu-tap-giay-da-nam-2021/"><img class="lazyload" data-src="https://laforce.vn/wp-content/uploads/2020/10/bo-suu-tap-giay.jpg" width="" height="" alt="99+ Men&#8217;s Shoe Lookbook ideas in 2023" /></a>
-                                                        </figure>
-                                                        <div class="post-list_h"><a class="post-title" href="https://laforce.vn/lookbook/bo-suu-tap-giay-da-nam-2021/" rel="bookmark" title="99+ Men&#8217;s Shoe Lookbook ideas in 2023">99+ Men&#8217;s Shoe Lookbook ideas in 2023</a></div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="pg-21578-6" class="panel-grid panel-has-style">
-                        <div id="nhanxet_home" class="panel-row-style panel-row-style-for-21578-6">
-                            <div id="pgc-21578-6-0" class="panel-grid-cell">
-                                <div id="panel-21578-6-0-0" class="so-panel widget widget_siteorigin-panels-builder panel-first-child panel-last-child" data-index="12">
-                                    <div id="pl-w6464a5d54b258" class="panel-layout">
-                                        <div id="pg-w6464a5d54b258-0" class="panel-grid panel-no-style">
-                                            <div id="pgc-w6464a5d54b258-0-0" class="panel-grid-cell">
-                                                <div id="panel-w6464a5d54b258-0-0-0" class="so-panel widget widget_black-studio-tinymce widget_black_studio_tinymce panel-first-child panel-last-child" data-index="0">
-                                                    <div class="widget-title"><span><h3><small>Đánh giá từ</small> Khách hàng</h3></span></div>
-                                                    <div class="textwidget">
-                                                        <p><strong>+ 45,969</strong></p>
-                                                        <p><span style="color: #ffffff;">Hàng nghìn khách hàng đã tin tưởng và ủng hộ sản phẩm của laforce</span></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="pgc-w6464a5d54b258-0-1" class="panel-grid-cell">
-                                                <div id="panel-w6464a5d54b258-0-1-0" class="widget_text so-panel widget widget_custom_html panel-first-child panel-last-child" data-index="1">
-                                                    <div class="textwidget custom-html-widget">
-                                                        <ul class="row">
-                                                            <li class="col-xs-6 col-sm-6 col-md-6 list_comment_short">
-                                                                <div class="content_comment">
-                                                                    <div class="avatar"><img src="https://laforce.vn/wp-content/uploads/2018/06/dienvientienloc.jpg" width="90" alt="DV Tiến Lộc"></div>
-                                                                    <div class="comment_meta">
-                                                                        <div class="author">DV Tiến Lộc<span class="danhgia woocommerce"> đã đánh giá <div class="star-rating" role="img" aria-label="Được xếp hạng 5 5 sao"><span style="width:100%">Được xếp hạng <strong class="rating">5</strong> 5 sao</span></div>
-                                                            </span>
-                                                                        </div>
-                                                                        <div class="content_comment">Đồ của LaForce khá hợp với phong cách của mình: hiện đại và sang trọng nên mỗi khi tham gia sự kiện hay ra mắt phim mới là lại phải đến sắm kha khá đồ.</div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="col-xs-6 col-sm-6 col-md-6 list_comment_short">
-                                                                <div class="content_comment">
-                                                                    <div class="avatar"><img src="https://laforce.vn/wp-content/uploads/2018/06/mcongto.jpg" width="90" alt="MC Công Tố"></div>
-                                                                    <div class="comment_meta">
-                                                                        <div class="author">MC Công Tố<span class="danhgia woocommerce"> đã đánh giá <div class="star-rating" role="img" aria-label="Được xếp hạng 5 5 sao"><span style="width:100%">Được xếp hạng <strong class="rating">5</strong> 5 sao</span></div>
-                                                    </span>
-                                                                        </div>
-                                                                        <div class="content_comment">“Mình chọn LaForce bởi mỗi một sản phẩm ở đây đều được thiết kế rất tinh tế và cẩn thận với đội ngũ thiết kế, R&amp;D; chuyên nghiệp nên 2 năm qua mình sử dụng sản phẩm của LaForce khá nhiều”</div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="col-xs-6 col-sm-6 col-md-6 list_comment_short">
-                                                                <div class="content_comment">
-                                                                    <div class="avatar"><img src="https://laforce.vn/wp-content/uploads/2018/06/MCducbao.jpg" width="90" alt="MC Đức Bảo"></div>
-                                                                    <div class="comment_meta">
-                                                                        <div class="author">MC Đức Bảo<span class="danhgia woocommerce"> đã đánh giá </span></div>
-                                                                        <div class="content_comment">"Phong cách trên truyền hình và thực tế của tôi khá giống nhau đều hướng đến sự lịch lãm mà không quá cứng nhắc mà LaForce hoàn toàn đáp ứng được yêu cầu này của mình."</div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="col-xs-6 col-sm-6 col-md-6 list_comment_short">
-                                                                <div class="content_comment">
-                                                                    <div class="avatar"><img src="https://laforce.vn/wp-content/uploads/2018/06/dvmanhtruong.jpg" width="90" alt="DV M.Trường"></div>
-                                                                    <div class="comment_meta">
-                                                                        <div class="author">DV M.Trường<span class="danhgia woocommerce"> đã đánh giá <div class="star-rating" role="img" aria-label="Được xếp hạng 5 5 sao"><span style="width:100%">Được xếp hạng <strong class="rating">5</strong> 5 sao</span></div>
-                                                </span>
-                                                                        </div>
-                                                                        <div class="content_comment">"LaForce đáp ứng đủ các tiêu chí của mình như chất liệu da nhập khẩu, thiết kế theo chuẩn Châu Âu, … nên những năm qua mình sử dụng sản phẩm của LaForce khá thường xuyên"</div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="pg-21578-7" class="panel-grid panel-has-style">
-                        <div id="new_home" class="panel-row-style panel-row-style-for-21578-7">
-                            <div id="pgc-21578-7-0" class="panel-grid-cell">
-                                <div id="panel-21578-7-0-0" class="widget_text so-panel widget widget_custom_html panel-first-child panel-last-child" data-index="13">
-                                    <div class="widget_text container panel-widget-style panel-widget-style-for-21578-7-0-0">
-                                        <div class="widget-title"><span><h3><a href=#>BÁO CHÍ NÓI VỀ LAFORCE</a></h3></span></div>
-                                        <div class="textwidget custom-html-widget">
-                                            <ul class="row">
-                                                <li class="list_item_2  col-xs-6 col-sm-3 ">
-                                                    <div class="content_item">
-                                                        <figure class="featured-thumbnail thumbnail">
-                                                            <a href="http://vietnamnet.vn/vn/giai-tri/the-gioi-sao/sao-nam-viet-bat-mi-dia-chi-thoi-trang-yeu-thich-333735.html" rel="nofollow">
-                                                                <img class="lazyload" data-src="https://laforce.vn/wp-content/uploads/2021/07/Bao-vietnamnet.jpg" width="370" height="275" alt="Sao nam Việt bật mí địa chỉ thời trang yêu thích">
-                                                            </a>
-                                                        </figure>
-                                                        <div class="post-list_h">
-                                                            <a class="post-title" href="http://vietnamnet.vn/vn/giai-tri/the-gioi-sao/sao-nam-viet-bat-mi-dia-chi-thoi-trang-yeu-thich-333735.html" rel="nofollow" title="Sao nam Việt bật mí địa chỉ thời trang yêu thích">Sao nam Việt bật mí địa chỉ thời trang yêu thích</a>
-                                                        </div>
-                                                        <a href="http://vietnamnet.vn/vn/giai-tri/the-gioi-sao/sao-nam-viet-bat-mi-dia-chi-thoi-trang-yeu-thich-333735.html" class="btn btn-primary link" rel="nofollow">Xem thêm</a>
-                                                    </div>
-                                                </li>
-                                                <li class="list_item_2  col-xs-6 col-sm-3 ">
-                                                    <div class="content_item">
-                                                        <figure class="featured-thumbnail thumbnail">
-                                                            <a href="http://kenh14.vn/lich-lam-va-dang-cap-voi-bo-suu-tap-thu-dong-cua-laforce-20161008140315968.chn" rel="nofollow">
-                                                                <img class="lazyload" data-src="https://laforce.vn/wp-content/uploads/2021/07/Bao-kenh14.jpg" width="370" height="275" alt="Lịch lãm và đẳng cấp với bộ sưu tập Thu Đông của LaForce">
-                                                            </a>
-                                                        </figure>
-                                                        <div class="post-list_h">
-                                                            <a class="post-title" href="http://kenh14.vn/lich-lam-va-dang-cap-voi-bo-suu-tap-thu-dong-cua-laforce-20161008140315968.chn" rel="nofollow" title="Lịch lãm và đẳng cấp với bộ sưu tập Thu Đông của LaForce">Lịch lãm và đẳng cấp với bộ sưu tập Thu Đông của LaForce</a>
-                                                        </div>
-                                                        <a href="http://kenh14.vn/lich-lam-va-dang-cap-voi-bo-suu-tap-thu-dong-cua-laforce-20161008140315968.chn" class="btn btn-primary link" rel="nofollow">Xem thêm</a>
-                                                    </div>
-                                                </li>
-                                                <li class="list_item_2  col-xs-6 col-sm-3 ">
-                                                    <div class="content_item">
-                                                        <figure class="featured-thumbnail thumbnail">
-                                                            <a href="https://bongdaplus.vn/ben-ngoai-duong-piste/do-da-laforce-tai-tro-u20-viet-nam-tham-du-world-cup-2017-1862231705.html" rel="nofollow">
-                                                                <img class="lazyload" data-src="https://laforce.vn/wp-content/uploads/2021/07/Bao-bongdaplus.jpg" width="370" height="275" alt="Đồ da LaForce tài trợ U20 Việt Nam tham dự World Cup 2017">
-                                                            </a>
-                                                        </figure>
-                                                        <div class="post-list_h">
-                                                            <a class="post-title" href="https://bongdaplus.vn/ben-ngoai-duong-piste/do-da-laforce-tai-tro-u20-viet-nam-tham-du-world-cup-2017-1862231705.html" rel="nofollow" title="Đồ da LaForce tài trợ U20 Việt Nam tham dự World Cup 2017">Đồ da LaForce tài trợ U20 Việt Nam tham dự World Cup 2017</a>
-                                                        </div>
-                                                        <a href="https://bongdaplus.vn/ben-ngoai-duong-piste/do-da-laforce-tai-tro-u20-viet-nam-tham-du-world-cup-2017-1862231705.html" class="btn btn-primary link" rel="nofollow">Xem thêm</a>
-                                                    </div>
-                                                </li>
-                                                <li class="list_item_2  col-xs-6 col-sm-3 ">
-                                                    <div class="content_item">
-                                                        <figure class="featured-thumbnail thumbnail">
-                                                            <a href="https://saostar.vn/thoi-trang/sao-viet-khong-hen-ma-gap-cung-sam-tai-mot-thuong-hieu-thoi-trang-1864547.html" rel="nofollow">
-                                                                <img class="lazyload" data-src="https://laforce.vn/wp-content/uploads/2021/07/Bao-saostar.jpg" width="370" height="275" alt="Sao Việt 'không hẹn mà gặp' cùng sắm đồ tại một thương hiệu thời trang">
-                                                            </a>
-                                                        </figure>
-                                                        <div class="post-list_h">
-                                                            <a class="post-title" href="https://saostar.vn/thoi-trang/sao-viet-khong-hen-ma-gap-cung-sam-tai-mot-thuong-hieu-thoi-trang-1864547.html" rel="nofollow" title="Sao Việt 'không hẹn mà gặp' cùng sắm đồ tại một thương hiệu thời trang">Sao Việt 'không hẹn mà gặp' cùng sắm đồ tại một thương hiệu thời trang</a>
-                                                        </div>
-                                                        <a href="https://saostar.vn/thoi-trang/sao-viet-khong-hen-ma-gap-cung-sam-tai-mot-thuong-hieu-thoi-trang-1864547.html" class="btn btn-primary link" rel="nofollow">Xem thêm</a>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="clear"></div>
-
-                <!--.pagination-->
-
-            </div>
-            <!--#post-->
-
-        </div>
-        <div class="sidebar_single_post">
-            <div class="container">
-                <div id="black-studio-tinymce-22" class="visible-all-devices widget">
-                    <div class="textwidget">
-                        <ul>
-                            <li>Chất liệu 100% da thật</li>
-                            <li>Bảo trì trọn đời</li>
-                            <li>Miễn phí<br /> giao hàng toàn quốc</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <footer class="motopress-wrapper footer">
-            <div class="khuvuc_chinhanh">
-                <div class="container">
-                    <div id="tab95" class="col-xs-6 col-sm-3 box_khuvuc">
-                        <div class="title_chinhanh"><span>Hà Nội</span></div>
-                        <div class="list_chinhanh">
-                            <div class="list_list">
-                                <div class="title"><a rel="nofollow" href="https://goo.gl/maps/Biicy4e93Zqy97xr6"><label class="number">1</label><span>58 Phố Huế</span> <p>Q. Hai Bà Trưng</p> <p>Hotline: 024.2023.2666</p></a></div>
-                            </div>
-                            <div class="list_list">
-                                <div class="title"><a rel="nofollow" href="https://goo.gl/maps/c48LB85QCKgN7H1L8"><label class="number">2</label><span>158 Thái Hà</span> <p>Q. Đống Đa</p> <p>Hotline: 024.2262.9666</p></a></div>
-                            </div>
-                            <div class="list_list">
-                                <div class="title"><a rel="nofollow" href="https://goo.gl/maps/S2xpLRMFCcrCKpjY8"><label class="number">3</label><span>129 Cầu Giấy</span> <p>Q. Cầu Giấy</p> <p>Hotline: 024.6687.4400</p></a></div>
-                            </div>
-                            <div class="list_list">
-                                <div class="title"><a rel="nofollow" href="https://goo.gl/maps/teqXjqQbXRLamjaf7"><label class="number">4</label><span>38 Trần Phú</span> <p>Q. Hà Đông</p> <p>Hotline:  0243.997.0503</p></a></div>
-                            </div>
-                            <div class="list_list">
-                                <div class="title"><a rel="nofollow" href="https://goo.gl/maps/vUZcWoBn3doVBpRZA"><label class="number">5</label><span>206 Trần Duy Hưng</span> <p>Q. Cầu Giấy</p> <p>Hotline: 0243.997.0503</p></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="tab138" class="col-xs-6 col-sm-3 box_khuvuc">
-                        <div class="title_chinhanh"><span>Hồ Chí Minh</span></div>
-                        <div class="list_chinhanh">
-                            <div class="list_list">
-                                <div class="title"><a rel="nofollow" href="https://g.page/LaforcePN?share"><label class="number">6</label><span>332 Lê Văn Sỹ, P.14</span> <p>Quận 3</p> <p>Hotline: 028.6279.3138</p></a></div>
-                            </div>
-                            <div class="list_list">
-                                <div class="title"><a rel="nofollow" href="https://g.page/LAFORCESaiGon126quangtrungGV?share"><label class="number">7</label><span>126 Quang Trung, P. 10</span> <p>Quận Gò Vấp</p> <p>Hotline: 028.2211.8368</p></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="tab139" class="col-xs-6 col-sm-3 box_khuvuc">
-                        <div class="title_chinhanh"><span>Tỉnh thành khác</span></div>
-                        <div class="list_chinhanh">
-                            <div class="list_list">
-                                <div class="title"><a rel="nofollow" href="https://goo.gl/maps/8ShtYQAtuv5AhxUq8"><label class="number">8</label><span>Quảng Bình</span> <p>155 Trần Hưng Đạo, TP. Đồng Hới</p> <p>Hotline: </p></a></div>
-                            </div>
-                            <div class="list_list">
-                                <div class="title"><a rel="nofollow" href="https://goo.gl/maps/pbf7XJQM831Lhizm6"><label class="number">9</label><span>Bắc Giang</span> <p>74 Hoàng Văn Thụ</p> <p>Hotline: 0204.625.3286</p></a></div>
-                            </div>
-                            <div class="list_list">
-                                <div class="title"><a rel="nofollow" href="https://goo.gl/maps/91y9BrFp76vUbMPw9"><label class="number">10</label><span>Bắc Ninh</span> <p>266 Trần Hưng Đạo</p> <p>Hotline: 0222.222.4888</p></a></div>
-                            </div>
-                            <div class="list_list">
-                                <div class="title"><a rel="nofollow" href="https://goo.gl/maps/ZwvnT8pXMaDZLAGz6"><label class="number">11</label><span>Huế</span> <p>58 Nguyễn Huệ, Vĩnh Ninh</p> <p>Hotline: </p></a></div>
-                            </div>
-                            <div class="list_list">
-                                <div class="title"><a rel="nofollow" href="https://goo.gl/maps/ps2xsxkNQUUNAM8EA"><label class="number">12</label><span>Quảng Ninh</span> <p>339 Lê Thánh Tông, Hạ Long</p> <p>Hotline: </p></a></div>
-                            </div>
-                            <div class="list_list">
-                                <div class="title"><a rel="nofollow" href="https://goo.gl/maps/gQAFmcfo82kyRvpu6"><label class="number">13</label><span>Vũng Tàu</span> <p>52 Ba Cu, Phường 1</p> <p>Hotline: 0254.3525.379</p></a></div>
-                            </div>
-                            <div class="list_list">
-                                <div class="title"><a rel="nofollow" href="https://goo.gl/maps/bGRmPtXNvJKWZSTR6"><label class="number">14</label><span>Thanh Hóa</span> <p>12 Nguyễn Trãi</p> <p>Hotline: 0237.862.5588</p></a></div>
-                            </div>
-                            <div class="list_list">
-                                <div class="title"><a rel="nofollow" href="https://goo.gl/maps/HPYkde5CDgAMDPeYA"><label class="number">15</label><span>Ninh Bình</span> <p>49 Đinh Tiên Hoàng, P. Đông Thành</p> <p>Hotline: </p></a></div>
-                            </div>
-                            <div class="list_list">
-                                <div class="title"><a rel="nofollow" href="https://goo.gl/maps/W4QTojhPUHKy8JpFA"><label class="number">16</label><span>Hà Giang</span> <p>284 Trần Phú, Tổ 5 P. Trần Phú</p> <p>Hotline: </p></a></div>
-                            </div>
-                            <div class="list_list">
-                                <div class="title"><a rel="nofollow" href="https://goo.gl/maps/7wYeBZSH7qz4tGCi6"><label class="number">17</label><span>Hà Tĩnh</span> <p>60 Trần Phú</p> <p>Hotline: </p></a></div>
-                            </div>
-                            <div class="list_list">
-                                <div class="title"><a rel="nofollow" href="https://goo.gl/maps/iAGZnrLKNtCYRaS38"><label class="number">18</label><span>Bình Định</span> <p>167 Lê Hồng Phong, TP. Quy Nhơn</p> <p>Hotline: </p></a></div>
-                            </div>
-                            <div class="list_list">
-                                <div class="title"><a rel="nofollow" href="https://goo.gl/maps/6ETSXnCvvWtnfrDQ6"><label class="number">19</label><span>Đà Nẵng</span> <p>280 Điện Biên Phủ, Thanh Khê</p> <p>Hotline: </p></a></div>
-                            </div>
-                            <div class="list_list">
-                                <div class="title"><a rel="nofollow" href=""><label class="number">20</label><span>Đồng Nai</span> <p>367 Đường Ba Mươi Tháng Tư, TP.Biên Hòa</p> <p>Hotline: </p></a></div>
-                            </div>
-                            <div class="list_list">
-                                <div class="title"><a rel="nofollow" href=""><label class="number">21</label><span>Bình Thuận</span> <p>Số 119 Tôn Đức Thắng, TP Phan Thiết</p> <p>Hotline: </p></a></div>
-                            </div>
-                            <div class="list_list">
-                                <div class="title"><a rel="nofollow" href=""><label class="number">22</label><span>Hải Phòng</span> <p>231 Trần Nguyên Hãn- Lê Chân</p> <p>Hotline: </p></a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer_widget">
-                <div id="pl-107" class="panel-layout">
-                    <div id="pg-107-0" class="panel-grid panel-has-style">
-                        <div class="container panel-row-style panel-row-style-for-107-0">
-                            <div id="pgc-107-0-0" class="panel-grid-cell">
-                                <div id="panel-107-0-0-0" class="so-panel widget widget_black-studio-tinymce widget_black_studio_tinymce panel-first-child panel-last-child" data-index="0">
-                                    <div class="hotline_footer panel-widget-style panel-widget-style-for-107-0-0-0">
-                                        <div class="textwidget">
-                                            <p><img class="alignnone size-full wp-image-24371" src="https://laforce.vn/wp-content/uploads/2018/06/logofooter.png" alt="" width="158" height="37" /></p>
-                                            <p><span style="color: #999999;">Hotline:</span></p>
-                                            <p><a href="tel:19002033"><span style="font-size: 24px;"><strong>1900 2033</strong></span></a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="pgc-107-0-1" class="panel-grid-cell">
-                                <div id="panel-107-0-1-0" class="so-panel widget widget_nav_menu panel-first-child panel-last-child" data-index="1">
-                                    <div class="widget-title"><span><h4>Thông tin chung</h4></span></div>
-                                    <div class="menu-thong-tin-chung-container">
-                                        <ul id="menu-thong-tin-chung" class="menu">
-                                            <li id="menu-item-2340" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2340"><a href="https://laforce.vn/chinh-sach-bao-hanh/">Chính sách bảo hành</a></li>
-                                            <li id="menu-item-2339" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2339"><a href="https://laforce.vn/quy-dinh-doi-tra-hang/">Quy định đổi trả sản phẩm</a></li>
-                                            <li id="menu-item-2354" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2354"><a href="https://laforce.vn/chinh-sach-bao-mat/">Chính sách bảo mật</a></li>
-                                            <li id="menu-item-2353" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2353"><a href="https://laforce.vn/dieu-kien-giao-dich-chung/">Điều kiện giao dịch chung</a></li>
-                                            <li id="menu-item-13301" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13301"><a href="https://laforce.vn/he-thong-cua-hang/">Hệ thống cửa hàng</a></li>
-                                            <li id="menu-item-28697" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28697"><a href="https://laforce.vn/nhuong-quyen-thuong-hieu/">Đăng ký đại lý</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="pgc-107-0-2" class="panel-grid-cell">
-                                <div id="panel-107-0-2-0" class="so-panel widget widget_nav_menu panel-first-child panel-last-child" data-index="2">
-                                    <div class="widget-title"><span><h4>Hướng dẫn mua hàng</h4></span></div>
-                                    <div class="menu-huong-dan-mua-hang-container">
-                                        <ul id="menu-huong-dan-mua-hang" class="menu">
-                                            <li id="menu-item-2330" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2330"><a href="https://laforce.vn/van-chuyen-va-giao-nhan/">Vận chuyển và giao nhận</a></li>
-                                            <li id="menu-item-2329" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2329"><a href="https://laforce.vn/phuong-thuc-thanh-toan/">Phương thức thanh toán</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="pgc-107-0-3" class="panel-grid-cell">
-                                <div id="panel-107-0-3-0" class="widget_text so-panel widget widget_custom_html panel-first-child panel-last-child" data-index="3">
-                                    <div class="widget-title"><span><h4>Kết nối với chúng tôi</h4></span></div>
-                                    <div class="textwidget custom-html-widget">
-                                        <div class="social">
-                                            <a class="social_face" rel="nofollow" href="https://www.facebook.com/Laforce.vn/"><i class="fa fa-facebook"></i> Facebook</a> <a class="social_twiter" rel="nofollow" href="https://twitter.com/dodalaforce"><i class="fa fa-twitter"></i> Twitter</a>                                        <a class="social_youtube" rel="nofollow" href="https://www.youtube.com/channel/UCaqwQWg0lWKov_tnmenOTfQ"><i class="fa fa-youtube"></i> Youtube</a> <a class="social_instagram" rel="nofollow" href="https://www.instagram.com/laforcevietnam.official/"><i class="fa fa-instagram"></i> Instagram</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="diachi_footer">
-                <div class="container">
-                    <div class="copyright">
-                        <div id="footer-text" class="footer-text">
-                            <p><a href="http://online.gov.vn/Home/WebDetails/94868?AspxAutoDetectCookieSupport=1" rel="nofollow"><img class="size-full wp-image-63321 alignleft" src="https://laforce.vn/wp-content/uploads/2022/06/bocongthuong.png" alt="" width="120" height="45" /></a>                            @2023 All rights reserved Laforce</p>
-                            <!-- {%FOOTER_LINK} -->
-                        </div>
-                    </div>
-                    <div class="content_dc">
-                        <p>CÔNG TY TNHH LAFORCE VIỆT NAM</p>
-                        <p>Địa chỉ: Số 129 Cầu Giấy, Phường Quan Hoa, Quận Cầu Giấy, Thành Phố Hà Nội, Việt Nam</p>
-                        <p>Mã số doanh nghiệp: 0106156656</p>
-                    </div>
-                </div>
-            </div>
-        </footer>
 
         <!--End #motopress-main-->
     </div>
 </div>
-<div id="back-top-wrapper" class="visible-desktop">
-    <p id="back-top">
-        <a href="#top"><span></span></a> </p>
-</div>
-<div class="fixed_custom_contact">
-    <ul>
-        <li class="chat_facebook"><a href="https://www.messenger.com/t/317555715113063" target="_blank"></a></li>
-        <li class="call_phone">
-            <div class="phone_animation">
-                <div class="phone_animation_circle"></div>
-                <!-- <div class="phone_animation_circle_fill"></div> -->
-                <div class="phone_animation_circle_fill_img"></div>
-            </div>
-        </li>
-    </ul>
-</div>
-<div class="bg_popup">
-    <div class="poup_goilai">
-        <div class="content_poup">
 
-            <div class="wpcf7 no-js" id="wpcf7-f38056-o1" lang="vi-VN" dir="ltr">
-                <div class="screen-reader-response">
-                    <p role="status" aria-live="polite" aria-atomic="true"></p>
-                    <ul></ul>
-                </div>
-                <form action="/#wpcf7-f38056-o1" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
-                    <div style="display: none;">
-                        <input type="hidden" name="_wpcf7" value="38056" />
-                        <input type="hidden" name="_wpcf7_version" value="5.7.6" />
-                        <input type="hidden" name="_wpcf7_locale" value="vi_VN" />
-                        <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f38056-o1" />
-                        <input type="hidden" name="_wpcf7_container_post" value="0" />
-                        <input type="hidden" name="_wpcf7_posted_data_hash" value="" />
-                    </div>
-                    <div class="title">
-                        <p>Nhập số điện thoại của bạn và chúng tôi sẽ gọi lại sau!
-                        </p>
-                    </div>
-                    <div class="list_group">
-                        <p><span class="wpcf7-form-control-wrap" data-name="your-phone"><input size="40" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel" aria-required="true" aria-invalid="false" placeholder="Số điện thoại" value="" type="tel" name="your-phone" /></span>
-                        </p>
-                    </div>
-                    <div class="list_group">
-                        <p><span class="wpcf7-form-control-wrap" data-name="your-name"><input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Họ và tên" value="" type="text" name="your-name" /></span>
-                        </p>
-                    </div>
-                    <div class="list_group">
-                        <p><span class="wpcf7-form-control-wrap" data-name="your-message"><textarea cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Yêu cầu tư vấn" name="your-message"></textarea></span>
-                        </p>
-                    </div>
-                    <div class="list_group">
-                        <p><input class="wpcf7-form-control has-spinner wpcf7-submit" type="submit" value="Click để được gọi lại" />
-                        </p>
-                    </div><input type="hidden" id="ct_checkjs_cf7_b5b41fac0361d157d9673ecb926af5ae" name="ct_checkjs_cf7" value="0" />
-                    <script>
-                        setTimeout(function() {
-                            var ct_input_name = "ct_checkjs_cf7_b5b41fac0361d157d9673ecb926af5ae";
-                            if (document.getElementById(ct_input_name) !== null) {
-                                var ct_input_value = document.getElementById(ct_input_name).value;
-                                document.getElementById(ct_input_name).value = document.getElementById(ct_input_name).value.replace(ct_input_value, '1789939699');
-                            }
-                        }, 1000);
-                    </script><input id="apbct__email_id__wp_contact_form_7_37114" class="apbct_special_field apbct__email_id__wp_contact_form_7" autocomplete="off" name="apbct__email_id__wp_contact_form_7_37114" type="text" value="" size="30" maxlength="200"
-                /><input id="apbct_event_id" class="apbct_special_field" name="apbct_event_id" type="hidden" value="37114" />
-                    <div class="wpcf7-response-output" aria-hidden="true"></div>
-                </form>
-            </div>
-            <div class="close_poup">X</div>
-        </div>
-    </div>
-</div>
-<div class="hidden-xs list_adv">
-</div>
 <script type='text/javascript' src='https://laforce.vn/wp-content/themes/creativeframework/js/creative_lazy.min.js' defer></script>
 <script type="text/javascript">
     function creativeScript(c, b) {
@@ -1774,7 +1135,171 @@
         }
     }
 </style>
+<script type="text/javascript">
+    (function() {
+        var c = document.body.className;
+        c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+        document.body.className = c;
+    })();
+</script>
+<link rel='stylesheet' id='metaslider-flex-slider-css' href='https://laforce.vn/wp-content/plugins/ml-slider/assets/sliders/flexslider/flexslider.css' type='text/css' media='all' property='stylesheet' />
+<link rel='stylesheet' id='metaslider-public-css' href='https://laforce.vn/wp-content/plugins/ml-slider/assets/metaslider/public.css' type='text/css' media='all' property='stylesheet' />
+<script type='text/javascript' src='https://laforce.vn/wp-content/plugins/contact-form-7/includes/swv/js/index.js' id='swv-js'></script>
+<script type='text/javascript' id='contact-form-7-js-extra'>
+    /* <![CDATA[ */
+    var wpcf7 = {
+        "api": {
+            "root": "https:\/\/laforce.vn\/wp-json\/",
+            "namespace": "contact-form-7\/v1"
+        }
+    };
+    /* ]]> */
+</script>
+<script type='text/javascript' src='https://laforce.vn/wp-content/plugins/contact-form-7/includes/js/index.js' id='contact-form-7-js'></script>
+<script type='text/javascript' id='kk-star-ratings-js-extra'>
+    /* <![CDATA[ */
+    var kk_star_ratings = {
+        "action": "kk-star-ratings",
+        "endpoint": "https:\/\/laforce.vn\/wp-admin\/admin-ajax.php",
+        "nonce": "b0bc6d07e5"
+    };
+    /* ]]> */
+</script>
+<script type='text/javascript' src='https://laforce.vn/wp-content/plugins/kk-star-ratings/src/core/public/js/kk-star-ratings.min.js' id='kk-star-ratings-js'></script>
+<script type='text/javascript' src='https://laforce.vn/wp-content/plugins/ml-slider/assets/sliders/flexslider/jquery.flexslider.min.js' id='metaslider-flex-slider-js'></script>
+<script type='text/javascript' id='metaslider-flex-slider-js-after'>
+    var metaslider_82 = function($) {
+        $('#metaslider_82').addClass('flexslider');
+        $('#metaslider_82').flexslider({
+            slideshowSpeed: 3000,
+            animation: "fade",
+            controlNav: false,
+            directionNav: true,
+            pauseOnHover: true,
+            direction: "horizontal",
+            reverse: false,
+            animationSpeed: 600,
+            prevText: "Previous",
+            nextText: "Next",
+            fadeFirstSlide: true,
+            slideshow: true
+        });
+        $(document).trigger('metaslider/initialized', '#metaslider_82');
+    };
+    var timer_metaslider_82 = function() {
+        var slider = !window.jQuery ? window.setTimeout(timer_metaslider_82, 100) : !jQuery.isReady ? window.setTimeout(timer_metaslider_82, 1) : metaslider_82(window.jQuery);
+    };
+    timer_metaslider_82();
+</script>
+<script type="text/javascript">
+    document.body.className = document.body.className.replace("siteorigin-panels-before-js", "");
+</script>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Đồ da Laforce",
+        "image": "https://laforce.vn/wp-content/uploads/2018/05/logo.png",
+        "@id": "https://laforce.vn/",
+        "url": "https://laforce.vn/",
+        "telephone": "19002033",
+        "priceRange": "10$ - 250$",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "158 Thái Hà, Quận Đống Đa, Hà Nội",
+            "addressLocality": "Hà Nội",
+            "postalCode": "100000",
+            "addressCountry": "VN"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 21.0125787,
+            "longitude": 105.8207481
+        },
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+            ],
+            "opens": "09:00",
+            "closes": "22:00"
+        },
+        "sameAs": [
+            "https://www.facebook.com/Laforce.vn/",
+            "https://twitter.com/dodalaforce",
+            "https://www.instagram.com/laforcevietnam.official/",
+            "https://www.youtube.com/channel/UCaqwQWg0lWKov_tnmenOTfQ",
+            "https://www.linkedin.com/in/dodalaforce1/",
+            "https://www.pinterest.com/dodalaforce/",
+            "https://www.deviantart.com/dodalaforce",
+            "https://www.reddit.com/user/dodalaforce",
+            "https://en.wikipedia.org/wiki/Leather",
+            "https://laforce.vn/"
+        ]
+    }
+</script>
 
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Corporation",
+        "name": "Đồ da Laforce",
+        "alternateName": "Thế giới Đồ da Laforce",
+        "url": "https://laforce.vn/",
+        "logo": "https://laforce.vn/wp-content/uploads/2018/05/logo.png",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "19002033",
+            "contactType": "customer service",
+            "contactOption": ["TollFree", "HearingImpairedSupported"],
+            "areaServed": "VN",
+            "availableLanguage": "Vietnamese"
+        },
+        "sameAs": [
+            "https://www.facebook.com/Laforce.vn/",
+            "https://twitter.com/dodalaforce",
+            "https://www.instagram.com/laforcevietnam.official/",
+            "https://www.youtube.com/channel/UCaqwQWg0lWKov_tnmenOTfQ",
+            "https://www.linkedin.com/in/dodalaforce1/",
+            "https://www.pinterest.com/dodalaforce/",
+            "https://www.deviantart.com/dodalaforce",
+            "https://www.reddit.com/user/dodalaforce",
+            "https://en.wikipedia.org/wiki/Leather",
+            "https://laforce.vn/"
+        ]
+    }
+</script>
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org/",
+        "@type": "Person",
+        "name": "Anh Sơn",
+        "url": "https://www.facebook.com/anhsonleather/",
+        "image": "https://www.facebook.com/photo?fbid=106532678297698&set=a.106532698297696",
+        "sameAs": [
+            "https://www.facebook.com/anhsonleather/",
+            "https://twitter.com/anhsonleather",
+            "https://www.instagram.com/anhsonleather/",
+            "https://www.linkedin.com/in/anhsonleather/",
+            "https://www.pinterest.com/anhsonleather/",
+            "https://www.reddit.com/user/anhsonleather/",
+            "https://www.youtube.com/channel/UCYf5gRute9HI6y95Jey_Low",
+            "https://laforce.vn/"
+        ],
+        "jobTitle": "Specialist",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Đồ da Laforce"
+        }
+    }
+</script>
 </body>
 
 </html>
