@@ -49,13 +49,14 @@ public class SecurityController {
         List<String> roles = userDetails.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.toList());
+        JwtResponse jwtResponse = new JwtResponse(
+                jwt,
+                userDetails.getUsername(),
+                userDetails.getName(),
+                userDetails.getAccountId(),
+                roles);
         return ResponseEntity.ok(
-                new JwtResponse(
-                        jwt,
-                        userDetails.getUsername(),
-                        userDetails.getName(),
-                        userDetails.getAccountId(),
-                        roles)
+                jwtResponse
         );
     }
 }

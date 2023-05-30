@@ -1,0 +1,31 @@
+
+7
+java:S1643/"Use a StringBuilder instead.(ô¼œ³ıÿÿÿÿ
+7
+java:S16438"Use a StringBuilder instead.(ˆµÒşÿÿÿÿ
+7
+java:S1643?"Use a StringBuilder instead.(ˆµÒşÿÿÿÿ
+7
+java:S1643F"Use a StringBuilder instead.(ˆµÒşÿÿÿÿ
+7
+java:S1643M"Use a StringBuilder instead.(‚’Ò¢şÿÿÿÿ
+7
+java:S1643U"Use a StringBuilder instead.(‚’Ò¢şÿÿÿÿ
+2
+java:S1643\"Use a StringBuilder instead.(˜ãæÓ
+2
+java:S1643w"Use a StringBuilder instead.(ïëğ€
+2
+java:S1643~"Use a StringBuilder instead.(ïëğ€
+3
+java:S1643…"Use a StringBuilder instead.(»Ûœæ
+3
+java:S1643Œ"Use a StringBuilder instead.(»Ûœæ
+8
+java:S1643“"Use a StringBuilder instead.(›Ô½şûÿÿÿÿ
+8
+java:S1643–"Use a StringBuilder instead.(·›¹ûÿÿÿÿ
+3
+java:S1643™"Use a StringBuilder instead.(¶ñ—Ù
+S	java:S106"9Replace this use of System.out or System.err by a logger.(«™Œæüÿÿÿÿ
+V	java:S125o"<This block of commented-out lines of code should be removed.(™êÂáşÿÿÿÿ
