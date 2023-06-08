@@ -33,6 +33,7 @@ export class OrderDetailService {
   }
 
   decreaseAmount(orderDetailId: number):any {
+    debugger
     return this.httpClient.patch('http://localhost:8080/api/order-detail/decrease-amount'+ `?id=` + orderDetailId, {});
   }
 

@@ -22,6 +22,7 @@ public interface IOrderDetailRepository extends JpaRepository<OrderDetail, Long>
                     "       od.amount          as amount,  " +
                     "       p.product_image as productImage, " +
                     "       p.product_name  as productName, " +
+                    "       p.product_quantity  as productQuantity, " +
                     "       p.product_promotional_price as productPromotionalPrice " +
                     "FROM `order_detail` od " +
                     "         JOIN `orders` o on o.order_id = od.order_id " +
@@ -38,6 +39,7 @@ public interface IOrderDetailRepository extends JpaRepository<OrderDetail, Long>
                             "       od.amount          as amount,  " +
                             "       p.product_image as productImage, " +
                             "       p.product_name  as productName, " +
+                            "       p.product_quantity  as productQuantity, " +
                             "       p.product_promotional_price as productPromotionalPrice " +
                             "FROM `order_detail` od " +
                             "         JOIN `orders` o on o.order_id = od.order_id " +
@@ -211,5 +213,22 @@ public interface IOrderDetailRepository extends JpaRepository<OrderDetail, Long>
                     "AND od.flag_delete = false ",
             nativeQuery = true)
     List<IOrderDetailDto> amountShoppingCart(@Param("id") Long id);
+
+
+    @Transactional
+    @Modifying
+    @Query(value =
+            "UPDATE order_detail od " +
+                    "                 JOIN product p ON p.product_id = od.product_id " +
+                    "                 SET od.flag_delete = true  " +
+                    "                 WHERE od.amount > p.product_quantity OR p.product_quantity = 0;",
+            countQuery =
+                    "UPDATE order_detail od " +
+                            "                 JOIN product p ON p.product_id = od.product_id " +
+                            "                 SET od.flag_delete = true  " +
+                            "                 WHERE od.amount > p.product_quantity OR p.product_quantity = 0;",
+            nativeQuery = true)
+    void updateAmountShoppingCartCustomer();
+
 
 }

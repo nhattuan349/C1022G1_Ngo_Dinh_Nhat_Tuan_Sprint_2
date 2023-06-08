@@ -9,6 +9,7 @@ import {ShareService} from "../../../service/share.service";
 import {TokenStorageService} from "../../../service/token-storage.service";
 import {Title} from "@angular/platform-browser";
 import {OrderDetailService} from "../../../service/order-detail.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-product-detail',
@@ -109,9 +110,11 @@ export class ProductDetailComponent implements OnInit {
   addShoppingCart( productId: number) {
     this.orderDetailService.addShoppingCart(this.accountId, productId, this.amount).subscribe(()=>{
     });
-    if (this.orderDetailList.length === 1) {
+    if (this.orderDetailList.length === 1 && this.infoProduct.productQuantity === 0) {
       this.orderDetailList = [];
+      Swal.fire('Sản phẩm này tạm hết hàng');
     }
+    this.router.navigate(['/product/shopping-cart']);
   }
 
 

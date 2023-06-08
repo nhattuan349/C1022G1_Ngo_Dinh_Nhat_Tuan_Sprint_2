@@ -11,12 +11,7 @@ export interface Product {
   productPromotionalPrice?: number;
   productFlagDelete?: boolean;
   productTypeId?: ProductType;
-  productStatus?: string;
-  productConfiguration?: string;
-  productCPU?: string;
-  productCartVGA?: string;
-  productRAM?: string;
-  productHardDrive?: string;
-  productScreen?: string;
+
+
   // amount?: number;
 }

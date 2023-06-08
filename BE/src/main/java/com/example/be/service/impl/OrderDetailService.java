@@ -34,7 +34,7 @@ public class OrderDetailService implements IOrderDetailService {
 
     @Override
     public void decreaseQuantity(Long id) {
-        orderDetailRepository.increaseQuantity(id);
+        orderDetailRepository.decreaseQuantity(id);
     }
 
     @Override
@@ -76,5 +76,11 @@ public class OrderDetailService implements IOrderDetailService {
     public List<IOrderDetailDto> amountShoppingCart(Long id) {
         return orderDetailRepository.amountShoppingCart(id);
     }
+
+    @Override
+    public void updateAmountShoppingCartCustomer() {
+        orderDetailRepository.updateAmountShoppingCartCustomer();
+    }
+
 
 }

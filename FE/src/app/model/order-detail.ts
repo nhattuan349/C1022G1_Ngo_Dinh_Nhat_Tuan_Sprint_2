@@ -14,5 +14,5 @@ export interface OrderDetail {
   orderProductTime?: string;
   flag_buy?: boolean
   totalQuantity?: number;
-
+  productQuantity?: number;
 }

@@ -11,15 +11,11 @@
 </head>
 <body>
 <div class="duongdan"
-     style="background:url(https://firebasestorage.googleapis.com/v0/b/uploadfile-35ecc.appspot.com/o/San-pham-02.jpg?alt=media&token=909d333d-7fb1-4696-a26a-11d20771b9ab&_gl=1*egkiy8*_ga*MjUwNzcxMjU1LjE2NzY4NDg3MjM.*_ga_CW55HF8NVT*MTY4NjA0MzY1My4zNy4xLjE2ODYwNDM2ODguMC4wLjA.) center center no-repeat;background-size:cover; ">
+     style="background:url(https://laforce.vn/wp-content/uploads/2022/05/Giay-tay-nam.jpg) center center no-repeat;background-size:cover; ">
   <div class="container">
     <div class="content_duongdan">
       <ol vocab="http://schema.org/" typeof="BreadcrumbList" class="breadcrumb breadcrumb__t">
       </ol>
-      <section class="title-section">
-        <h1 class="title-header" style="margin-bottom: 0.5%">
-          Giỏ hàng </h1>
-      </section>
       <h1 class="title-header hide">
         <span>179+ Giày tây nam công sở da bò đẹp cao cấp hàng hiệu Laforce</span>
       </h1>
@@ -158,7 +154,6 @@
       background: #ddd;
     }
   </style>
-
   <div id="breadcrumb">
     <div class="container">
       <ol class="bre-new" itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -168,9 +163,6 @@
           </a>
           <meta itemprop="position" content="1"/>
         </li>
-        <!---->
-
-        <!--2-->
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
           <a itemprop="item">
 
@@ -199,7 +191,6 @@
           <!--Buoc 1 : gio hang-->
           <table cellpadding="5" border="1" bordercolor="#CCCCCC"
                  style="border-collapse:collapse; width:100%; background:#fff;" id="tbl_list_cart">
-
             <tbody *ngIf="orderDetailList.length > 0; else noMembers">
             <tr style="background: #f7f7f7;
             background: -moz-linear-gradient(top, #f7f7f7 0%, #ededed 98%);
@@ -210,9 +201,9 @@
               <td style="height:23px;">STT</td>
               <td width="600">Tên sản phẩm</td>
               <td>Giá</td>
-              <td>Số lượng</td>
+              <td style="text-align: center">Số lượng</td>
               <td>Tổng</td>
-              <td>Xóa</td>
+              <td>Thời gian</td>
             </tr>
 
             <tr class="js-item-row" data-variant_id="0" data-item_id="294" data-item_type="deal"
@@ -233,18 +224,15 @@
               </td>
               <td style="text-align:center;">
                 <div class="unit-detail-amount-control">
-                  <a (click)="od.amount > 1 && decreaseAmount(od.orderDerailId)" title="tru"
-                     [class.disabled]="od.amount <= 1">-</a>
-                  <input class="buy-quantity quantity-change" value="{{od.amount}}" size="5" fdprocessedid="dk955">
-                  <a (click)="increaseAmount(od.orderDerailId, od.productQuantity,od.amount)" title="them">+</a>
+                  <span>{{od?.amount}}</span>
                 </div>
               </td>
               <td class="product_cart">
                 <b><span class="total-item-price">{{od?.productPromotionalPrice * od.amount|number:'1.0-0'}}</span> VND</b>
               </td>
-              <td><a class="button-remove-pro delete-from-cart" (click)="orderDetailObject=od"><img
-                src="https://firebasestorage.googleapis.com/v0/b/uploadfile-35ecc.appspot.com/o/icon_cart_del.png?alt=media&token=d1d2f5ce-a117-4a00-906f-a3d93bdb5740"
-                data-bs-toggle="modal" data-bs-target="#exampleModal"></a></td>
+              <td class="product_cart">
+                <b><span class="total-item-price">{{od?.orderProductTime| date: 'dd/MM/yyyy hh:mm:ss'}}</span></b>
+              </td>
             </tr>
 
             <tr>
@@ -265,7 +253,7 @@
                                                                          data-gtm-vis-recent-on-screen-10926496_41="4985"
                                                                          data-gtm-vis-total-visible-time-10926496_41="100"
                                                                          data-gtm-vis-has-fired-10926496_41="1">{{this.totalPrice|number:'1.0-0'}}</span>
-                  VND </b>
+                  VND &nbsp; </b>
 
               </td>
             </tr>
@@ -276,8 +264,6 @@
               </tr>
             </ng-template>
           </table>
-
-
           <div class="clear space10"></div>
           <div align="right" routerLink="/product">
             <input type="button" class="btn btn-blue" value="Tiếp tục mua hàng">
@@ -286,69 +272,21 @@
           <div class="cart-left">
           </div>
           <div class="cart-right">
-
             <div id="buttonPayment"></div>
           </div>
         </form>
-
         <p>&nbsp;</p>
-
-
         <style>
           label:before {
             content: '';
             display: none;
           }
         </style>
-
-
         <div class="clear"></div>
       </div>
-      <!--content-->
     </div>
   </section>
-
-
 </main>
 </body>
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Giỏ hàng</h5>
-        <button type="button" class="btn-close d-flex justify-content-center align-items-center "
-                data-bs-dismiss="modal" aria-label="Close"
-                style="font-size: 1em; width: 2rem; height: 2rem; padding: 0 ;border-radius: 15%;background-color: #DEE1E6; padding-bottom: 1%;  text-align: center;line-height: 1; border: none;"
-                onmouseover="this.style.backgroundColor='#ED2248'; this.style.color='#FFF';"
-                onmouseout="this.style.backgroundColor='#DEE1E6'; this.style.color='#5F6368';"
-                onfocus="this.style.boxShadow='none';this.style.outline='2px solid #CFF4FC';"
-                onblur="this.style.outline='none';"></button>
-      </div>
-      <div class="modal-body">
-        <p>Bạn có chắc sẽ xóa không ?
-        </p>
-        <div class="product_cart">
-          <img src="{{orderDetailObject?.productImage}}"
-               style="vertical-align: middle; margin-right: 10px; float:left; width:50px;">
-          <div style="margin-left:70px;">
-            <a><b style="color: red; font-weight: bold">{{orderDetailObject?.productName}}</b></a>
-            <p style="margin:3px 0;"></p>
-
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="color: #335628"
-                (click)="deleteOrderDetail(orderDetailObject.orderDerailId)">
-          Đồng ý
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
 </html>
 

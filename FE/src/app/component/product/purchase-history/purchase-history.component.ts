@@ -1,22 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from "sweetalert2";
+import {OrderDetail} from "../../../model/order-detail";
+import {ProductDto} from "../../../dto/product-dto";
+import {FormGroup} from "@angular/forms";
 import {ViewportScroller} from "@angular/common";
 import {OrderDetailService} from "../../../service/order-detail.service";
 import {TokenStorageService} from "../../../service/token-storage.service";
 import {Router} from "@angular/router";
 import {Title} from "@angular/platform-browser";
-import {OrderDetail} from "../../../model/order-detail";
-import {ProductDto} from "../../../dto/product-dto";
-import {FormGroup} from "@angular/forms";
-import {render} from "creditcardpayments/creditCardPayments";
-
 
 @Component({
-  selector: 'app-shopping-cart',
-  templateUrl: './shopping-cart.component.html',
-  styleUrls: ['./shopping-cart.component.css']
+  selector: 'app-purchase-history',
+  templateUrl: './purchase-history.component.html',
+  styleUrls: ['./purchase-history.component.css']
 })
-export class ShoppingCartComponent implements OnInit {
+export class PurchaseHistoryComponent implements OnInit {
+
   quantity = 1;
   orderDetailList: OrderDetail [] = [];
   accountId: number;
@@ -39,7 +38,8 @@ export class ShoppingCartComponent implements OnInit {
               private token: TokenStorageService,
               private router: Router,
               private titleService: Title) {
-    this.titleService.setTitle('Giỏ hàng') }
+    this.titleService.setTitle('Lịch sử mua hàng')
+  }
 
   // Hàm để tạo danh sách các trang
   private createPageList() {
@@ -88,7 +88,7 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   getAll(page: number) {
-    this.orderDetailService.getAllOrderDetail(this.accountId, page).subscribe(data => {
+    this.orderDetailService.getAllPurchaseHistoryOrderDetail(this.accountId, page).subscribe(data => {
       this.teamPage = data;
       // @ts-ignore
       this.orderDetailList = data['content'];
@@ -100,10 +100,6 @@ export class ShoppingCartComponent implements OnInit {
       this.size = data['size'];
       console.log("tuanmnnnnnnnnnnnnn"+ this.orderDetailList);
       this.getQuantityAndTotalPrice();
-
-
-
-
     });
     this.createPageList();
   }
@@ -148,34 +144,12 @@ export class ShoppingCartComponent implements OnInit {
     }
   }
 
-  increaseAmount(orderDetailId: number,productQuantity:number,amount:number) {
-    if (amount>=productQuantity){
-      const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer);
-          toast.addEventListener('mouseleave', Swal.resumeTimer);
-        }
-      });
-      Toast.fire({
-        icon: 'error',
-        title: 'Số lượng không đủ'
-      });
-    } else  {
-      this.orderDetailService.increaseAmount(orderDetailId).subscribe((data: any) => {
-        console.log(data);
-      });
-      console.log('okok');
-      // this.ngOnInit()
-      this.getAll(this.p);
-      this.getUserName();
-      this.createPageList();
-      this.getQuantityAndTotalPrice();
-    }
+  increaseAmount(orderDetailId: number) {
+    this.orderDetailService.increaseAmount(orderDetailId).subscribe((data: any) => {
+      console.log(data);
+    });
+    console.log('okok');
+    this.ngOnInit()
   }
 
   decreaseAmount(orderDetailId: number) {
@@ -183,10 +157,7 @@ export class ShoppingCartComponent implements OnInit {
       console.log(data);
     });
     console.log('okok');
-    this.getAll(this.p);
-    this.getUserName();
-    this.createPageList();
-    this.getQuantityAndTotalPrice();
+    this.ngOnInit()
   }
 
 
@@ -230,30 +201,10 @@ export class ShoppingCartComponent implements OnInit {
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.orderDetailList.length; i++) {
       this.totalPrice += this.orderDetailList[i].productPromotionalPrice * this.orderDetailList[i].amount;
-      if (!this.isRendered) {
-        render({
-          id: '#buttonPayment',
-          currency: 'USD',
-          value: (this.totalPrice / 23000).toFixed(2),
-          onApprove: (details) => {
-            // this.buy();
-            this.orderDetailService.updateBuySuccess(this.accountId).subscribe((data: any) => {
-            });
-            Swal.fire({
-              position: 'center',
-              icon: 'success',
-              title: 'Payment Success!',
-              showConfirmButton: false,
-              timer: 3000
-            });
-            console.log(this.totalPrice);
-            this.router.navigateByUrl('/');
-          }
-        });
-      }
-      this.isRendered = true;
     }
+
   }
+
 
 
 }

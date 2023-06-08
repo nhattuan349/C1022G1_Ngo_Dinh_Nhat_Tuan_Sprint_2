@@ -631,29 +631,6 @@
                                               href="https://laforce.vn/wp-content/uploads/2018/12/GNLAAZ01-1-D-2.jpg"><img
                           alt=""
                           src="{{image.image}}" (click)="preventDefault($event)"/></a></div>
-<!--                        <div class="thumb"><a class="zoom"-->
-<!--                                              href="https://laforce.vn/wp-content/uploads/2018/12/GNLAAZ01-1-D.jpg"><img-->
-<!--                          alt=""-->
-<!--                          src="https://laforce.vn/wp-content/uploads/2018/12/GNLAAZ01-1-D.jpg"/></a></div>-->
-<!--                        <div class="thumb"><a class="zoom"-->
-<!--                                              href="https://laforce.vn/wp-content/uploads/2018/12/giay-da-nam-kieu-dang-oxford-gnlaaz01-1-d-2-3.jpg"><img-->
-<!--                          alt=""-->
-<!--                          src="https://laforce.vn/wp-content/uploads/2018/12/giay-da-nam-kieu-dang-oxford-gnlaaz01-1-d-2-3.jpg"/></a></div>-->
-<!--                        <div-->
-<!--                          class="thumb"><a class="zoom"-->
-<!--                                           href="https://laforce.vn/wp-content/uploads/2018/12/giay-da-nam-kieu-dang-oxford-gnlaaz01-1-d-1.jpg"><img-->
-<!--                          alt=""-->
-<!--                          src="https://laforce.vn/wp-content/uploads/2018/12/giay-da-nam-kieu-dang-oxford-gnlaaz01-1-d-1.jpg"/></a></div>-->
-<!--                        <div-->
-<!--                          class="thumb"><a class="zoom"-->
-<!--                                           href="https://laforce.vn/wp-content/uploads/2018/12/giay-da-nam-kieu-dang-oxford-gnlaaz01-1-d-2-4.jpg"><img-->
-<!--                          alt=""-->
-<!--                          src="https://laforce.vn/wp-content/uploads/2018/12/giay-da-nam-kieu-dang-oxford-gnlaaz01-1-d-2-4.jpg"/></a></div>-->
-<!--                        <div-->
-<!--                          class="thumb"><a class="zoom"-->
-<!--                                           href="https://laforce.vn/wp-content/uploads/2018/12/giay-da-nam-kieu-dang-oxford-gnlaaz01-1-d-2.jpg"><img-->
-<!--                          alt=""-->
-<!--                          src="https://laforce.vn/wp-content/uploads/2018/12/giay-da-nam-kieu-dang-oxford-gnlaaz01-1-d-2.jpg"/></a></div>-->
                       </div>
                       <div class="big_slide" #imgShowcase>
                         <img
@@ -676,10 +653,23 @@
 
                       <form class="variations_form cart" method="post">
 
-                        <button class="single_add_to_cart_button button alt" type="submit" routerLink="/product/shopping-cart" (click)="addShoppingCart(infoProduct.productId)">Thanh
-                          toán ngay
+                        <button class="single_add_to_cart_button button alt" type="submit"
+                                (click)="addShoppingCart(infoProduct.productId)"
+                                *ngIf="infoProduct.productQuantity >= 1">
+                          Thanh toán ngay
                         </button>
-
+                        <!--                        <div class="select_box_label select_box attribute_pa_size">-->
+                        <!--                          <div class="select_option_label select_option"><span>38</span></div>-->
+                        <!--                          <div class="select_option_label select_option"><span>39</span></div>-->
+                        <!--                          <div class="select_option_label select_option"><span>40</span></div>-->
+                        <!--                          <div class="select_option_label select_option"><span>41</span></div>-->
+                        <!--                          <div class="select_option_label select_option"><span>42</span></div>-->
+                        <!--                          <div class="select_option_label select_option"><span>43</span></div>-->
+                        <!--                        </div>-->
+                        <button class="single_add_to_cart_button button alt" type="submit"
+                                *ngIf="infoProduct.productQuantity < 1">
+                          Tạm Hết hàng
+                        </button>
 
                       </form>
 
@@ -911,307 +901,6 @@
 
         </div>
       </div>
-
-
-      <footer class="motopress-wrapper footer">
-        <div class="khuvuc_chinhanh">
-          <div class="container">
-            <div class="col-xs-6 col-sm-3 box_khuvuc" id="tab95">
-              <div class="title_chinhanh"><span>Hà Nội</span></div>
-              <div class="list_chinhanh">
-                <div class="list_list">
-                  <div class="title"><a href="https://goo.gl/maps/Biicy4e93Zqy97xr6"
-                                        rel="nofollow"><label
-                    class="number">1</label><span>58 Phố Huế</span>
-                    <p>Q. Hai Bà Trưng</p>
-                    <p>Hotline: 024.2023.2666</p></a></div>
-                </div>
-                <div class="list_list">
-                  <div class="title"><a href="https://goo.gl/maps/c48LB85QCKgN7H1L8"
-                                        rel="nofollow"><label
-                    class="number">2</label><span>158 Thái Hà</span>
-                    <p>Q. Đống Đa</p>
-                    <p>Hotline: 024.2262.9666</p></a></div>
-                </div>
-                <div class="list_list">
-                  <div class="title"><a href="https://goo.gl/maps/S2xpLRMFCcrCKpjY8"
-                                        rel="nofollow"><label
-                    class="number">3</label><span>129 Cầu Giấy</span>
-                    <p>Q. Cầu Giấy</p>
-                    <p>Hotline: 024.6687.4400</p></a></div>
-                </div>
-                <div class="list_list">
-                  <div class="title"><a href="https://goo.gl/maps/teqXjqQbXRLamjaf7"
-                                        rel="nofollow"><label
-                    class="number">4</label><span>38 Trần Phú</span>
-                    <p>Q. Hà Đông</p>
-                    <p>Hotline: 0243.997.0503</p></a></div>
-                </div>
-                <div class="list_list">
-                  <div class="title"><a href="https://goo.gl/maps/vUZcWoBn3doVBpRZA"
-                                        rel="nofollow"><label
-                    class="number">5</label><span>206 Trần Duy Hưng</span>
-                    <p>Q. Cầu Giấy</p>
-                    <p>Hotline: 0243.997.0503</p></a></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-6 col-sm-3 box_khuvuc" id="tab138">
-              <div class="title_chinhanh"><span>Hồ Chí Minh</span></div>
-              <div class="list_chinhanh">
-                <div class="list_list">
-                  <div class="title"><a href="https://g.page/LaforcePN?share" rel="nofollow"><label
-                    class="number">6</label><span>332 Lê Văn Sỹ, P.14</span>
-                    <p>Quận 3</p>
-                    <p>Hotline: 028.6279.3138</p></a></div>
-                </div>
-                <div class="list_list">
-                  <div class="title"><a href="https://g.page/LAFORCESaiGon126quangtrungGV?share"
-                                        rel="nofollow"><label
-                    class="number">7</label><span>126 Quang Trung, P. 10</span>
-                    <p>Quận Gò Vấp</p>
-                    <p>Hotline: 028.2211.8368</p></a></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-6 col-sm-3 box_khuvuc">
-              <div class="title_chinhanh"><span>Tỉnh Thành Khác</span></div>
-              <div class="list_chinhanh">
-                <div class="list_list">
-                  <div class="title"><a href="https://goo.gl/maps/8ShtYQAtuv5AhxUq8"
-                                        rel="nofollow"><label
-                    class="number">8</label><span>Quảng Bình</span>
-                    <p>155 Trần Hưng Đạo, TP. Đồng Hới</p>
-                    <p>Hotline: </p></a></div>
-                </div>
-                <div class="list_list">
-                  <div class="title"><a href="https://goo.gl/maps/pbf7XJQM831Lhizm6"
-                                        rel="nofollow"><label
-                    class="number">9</label><span>Bắc Giang</span>
-                    <p>74 Hoàng Văn Thụ</p>
-                    <p>Hotline: 0204.625.3286</p></a></div>
-                </div>
-                <div class="list_list">
-                  <div class="title"><a href="https://goo.gl/maps/91y9BrFp76vUbMPw9"
-                                        rel="nofollow"><label
-                    class="number">10</label><span>Bắc Ninh</span>
-                    <p>266 Trần Hưng Đạo</p>
-                    <p>Hotline: 0222.222.4888</p></a></div>
-                </div>
-                <div class="list_list">
-                  <div class="title"><a href="https://goo.gl/maps/ZwvnT8pXMaDZLAGz6"
-                                        rel="nofollow"><label
-                    class="number">11</label><span>Huế</span>
-                    <p>58 Nguyễn Huệ, Vĩnh Ninh</p>
-                    <p>Hotline: </p></a></div>
-                </div>
-                <div class="list_list">
-                  <div class="title"><a href="https://goo.gl/maps/ps2xsxkNQUUNAM8EA"
-                                        rel="nofollow"><label
-                    class="number">12</label><span>Quảng Ninh</span>
-                    <p>339 Lê Thánh Tông, Hạ Long</p>
-                    <p>Hotline: </p></a></div>
-                </div>
-                <div class="list_list">
-                  <div class="title"><a href="https://goo.gl/maps/gQAFmcfo82kyRvpu6"
-                                        rel="nofollow"><label
-                    class="number">13</label><span>Vũng Tàu</span>
-                    <p>52 Ba Cu, Phường 1</p>
-                    <p>Hotline: 0254.3525.379</p></a></div>
-                </div>
-                <div class="list_list">
-                  <div class="title"><a href="https://goo.gl/maps/bGRmPtXNvJKWZSTR6"
-                                        rel="nofollow"><label
-                    class="number">14</label><span>Thanh Hóa</span>
-                    <p>12 Nguyễn Trãi</p>
-                    <p>Hotline: 0237.862.5588</p></a></div>
-                </div>
-                <div class="list_list">
-                  <div class="title"><a href="https://goo.gl/maps/HPYkde5CDgAMDPeYA"
-                                        rel="nofollow"><label
-                    class="number">15</label><span>Ninh Bình</span>
-                    <p>49 Đinh Tiên Hoàng, P. Đông Thành</p>
-                    <p>Hotline: </p></a></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-6 col-sm-3 box_khuvuc">
-              <div class="title_chinhanh"><span>TỈNH THÀNH KHÁC</span></div>
-              <div class="list_chinhanh">
-                <div class="list_list">
-                  <div class="title"><a href="https://goo.gl/maps/W4QTojhPUHKy8JpFA"
-                                        rel="nofollow"><label
-                    class="number">16</label><span>Hà Giang</span>
-                    <p>284 Trần Phú, Tổ 5 P. Trần Phú</p>
-                    <p>Hotline: </p></a></div>
-                </div>
-                <div class="list_list">
-                  <div class="title"><a href="https://goo.gl/maps/7wYeBZSH7qz4tGCi6"
-                                        rel="nofollow"><label
-                    class="number">17</label><span>Hà Tĩnh</span>
-                    <p>60 Trần Phú</p>
-                    <p>Hotline: </p></a></div>
-                </div>
-                <div class="list_list">
-                  <div class="title"><a href="https://goo.gl/maps/iAGZnrLKNtCYRaS38"
-                                        rel="nofollow"><label
-                    class="number">18</label><span>Bình Định</span>
-                    <p>167 Lê Hồng Phong, TP. Quy Nhơn</p>
-                    <p>Hotline: </p></a></div>
-                </div>
-                <div class="list_list">
-                  <div class="title"><a href="https://goo.gl/maps/6ETSXnCvvWtnfrDQ6"
-                                        rel="nofollow"><label
-                    class="number">19</label><span>Đà Nẵng</span>
-                    <p>280 Điện Biên Phủ, Thanh Khê</p>
-                    <p>Hotline: </p></a></div>
-                </div>
-                <div class="list_list">
-                  <div class="title"><a href="" rel="nofollow"><label class="number">20</label><span>Đồng Nai</span>
-                    <p>367 Đường Ba Mươi Tháng Tư, TP.Biên Hòa</p>
-                    <p>Hotline: </p></a></div>
-                </div>
-                <div class="list_list">
-                  <div class="title"><a href="" rel="nofollow"><label class="number">21</label><span>Bình Thuận</span>
-                    <p>Số 119 Tôn Đức Thắng, TP Phan Thiết</p>
-                    <p>Hotline: </p></a></div>
-                </div>
-                <div class="list_list">
-                  <div class="title"><a href="" rel="nofollow"><label class="number">22</label><span>Hải Phòng</span>
-                    <p>231 Trần Nguyên Hãn- Lê Chân</p>
-                    <p>Hotline: </p></a></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="footer_widget">
-          <div class="panel-layout" id="pl-107">
-            <div class="panel-grid panel-has-style" id="pg-107-0">
-              <div class="container panel-row-style panel-row-style-for-107-0">
-                <div class="panel-grid-cell" id="pgc-107-0-0">
-                  <div class="so-panel widget widget_black-studio-tinymce widget_black_studio_tinymce panel-first-child panel-last-child"
-                       id="panel-107-0-0-0">
-                    <div class="hotline_footer panel-widget-style panel-widget-style-for-107-0-0-0">
-                      <div class="textwidget">
-                        <p><img alt=""
-                                class="alignnone size-full wp-image-24371"
-                                height="37" src="https://laforce.vn/wp-content/uploads/2018/06/logofooter.png"
-                                width="158"/></p>
-                        <p><span style="color: #999999;">Hotline:</span></p>
-                        <p><a href="tel:19002033"><span style="font-size: 24px;"><strong>1900 2033</strong></span></a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="panel-grid-cell" id="pgc-107-0-1">
-                  <div class="so-panel widget widget_nav_menu panel-first-child panel-last-child"
-                       id="panel-107-0-1-0">
-                    <div class="widget-title"><span><h4>Thông tin chung</h4></span></div>
-                    <div class="menu-thong-tin-chung-container">
-                      <ul class="menu" id="menu-thong-tin-chung">
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2340"
-                            id="menu-item-2340">
-                          <a
-                            href="https://laforce.vn/chinh-sach-bao-hanh/">Chính sách
-                            bảo hành</a></li>
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2339"
-                            id="menu-item-2339">
-                          <a
-                            href="https://laforce.vn/quy-dinh-doi-tra-hang/">Quy định
-                            đổi trả sản phẩm</a></li>
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2354"
-                            id="menu-item-2354">
-                          <a
-                            href="https://laforce.vn/chinh-sach-bao-mat/">Chính sách bảo
-                            mật</a></li>
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2353"
-                            id="menu-item-2353">
-                          <a
-                            href="https://laforce.vn/dieu-kien-giao-dich-chung/">Điều
-                            kiện giao dịch chung</a></li>
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13301"
-                            id="menu-item-13301">
-                          <a
-                            href="https://laforce.vn/he-thong-cua-hang/">Hệ thống cửa
-                            hàng</a></li>
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28697"
-                            id="menu-item-28697">
-                          <a
-                            href="https://laforce.vn/nhuong-quyen-thuong-hieu/">Đăng ký
-                            đại lý</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="panel-grid-cell" id="pgc-107-0-2">
-                  <div class="so-panel widget widget_nav_menu panel-first-child panel-last-child"
-                       id="panel-107-0-2-0">
-                    <div class="widget-title"><span><h4>Hướng dẫn mua hàng</h4></span></div>
-                    <div class="menu-huong-dan-mua-hang-container">
-                      <ul class="menu" id="menu-huong-dan-mua-hang">
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2330"
-                            id="menu-item-2330">
-                          <a
-                            href="https://laforce.vn/van-chuyen-va-giao-nhan/">Vận
-                            chuyển và giao nhận</a></li>
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2329"
-                            id="menu-item-2329">
-                          <a
-                            href="https://laforce.vn/phuong-thuc-thanh-toan/">Phương
-                            thức thanh toán</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="panel-grid-cell" id="pgc-107-0-3">
-                  <div class="widget_text so-panel widget widget_custom_html panel-first-child panel-last-child"
-                       id="panel-107-0-3-0">
-                    <div class="widget-title"><span><h4>Kết nối với chúng tôi</h4></span></div>
-                    <div class="textwidget custom-html-widget">
-                      <div class="social">
-                        <a class="social_face" href="https://www.facebook.com/Laforce.vn/"
-                           rel="nofollow"><i
-                          class="fa fa-facebook"></i> Facebook</a> <a
-                        class="social_twiter" href="https://twitter.com/dodalaforce"
-                        rel="nofollow"><i
-                        class="fa fa-twitter"></i> Twitter</a> <a class="social_youtube"
-                                                                  href="https://www.youtube.com/channel/UCaqwQWg0lWKov_tnmenOTfQ"
-                                                                  rel="nofollow"><i
-                        class="fa fa-youtube"></i> Youtube</a> <a class="social_instagram"
-                                                                  href="https://www.instagram.com/laforcevietnam.official/"
-                                                                  rel="nofollow"><i
-                        class="fa fa-instagram"></i> Instagram</a></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="diachi_footer">
-          <div class="container">
-            <div class="copyright">
-              <div class="footer-text" id="footer-text">
-                <p><a href="http://online.gov.vn/Home/WebDetails/94868?AspxAutoDetectCookieSupport=1"
-                      rel="nofollow"><img alt=""
-                                          class="size-full wp-image-63321 alignleft"
-                                          height="45"
-                                          src="https://laforce.vn/wp-content/uploads/2022/06/bocongthuong.png" width="120"/></a> @2023 All rights reserved
-                  Laforce</p>
-              </div>
-            </div>
-            <div class="content_dc">
-              <p>CÔNG TY TNHH LAFORCE VIỆT NAM</p>
-              <p>Địa chỉ: Số 129 Cầu Giấy, Phường Quan Hoa, Quận Cầu Giấy, Thành Phố Hà Nội, Việt Nam</p>
-              <p>Mã số doanh nghiệp: 0106156656</p>
-            </div>
-          </div>
-        </div>
-      </footer>
-
-      <!--End #motopress-main-->
     </div>
   </div>
   <div class="visible-desktop" id="back-top-wrapper">

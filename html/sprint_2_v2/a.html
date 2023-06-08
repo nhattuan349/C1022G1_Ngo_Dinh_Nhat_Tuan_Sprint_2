@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
+
+</head>
+<body>
+<main>
+    <style>
+        .radio-label.current {
+            font-weight: bold;
+            color: #ff8f00;
+        }
+
+        .cart-left {
+            width: 685px;
+            float: left;
+        }
+
+        .cart-right {
+            width: 490px;
+            float: right;
+        }
+
+        .box-cart {
+            border: solid 1px #ccc;
+            margin-bottom: 15px;
+        }
+
+        .content-box-cart {
+            padding: 10px;
+        }
+
+        .pay-content {
+            background: #ff8f00;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .title-box-cart {
+            line-height: 34px;
+            padding: 0 10px;
+            font-weight: bold;
+            font-size: 15px;
+            /* Permalink - use to edit and share this gradient:http://colorzilla.com/gradient-editor/#f7f7f7+0,ededed+98 */
+            background: #f7f7f7;
+            /* Old browsers */
+            background: -moz-linear-gradient(top, #f7f7f7 0%, #ededed 98%);
+            /* FF3.6-15 */
+            background: -webkit-linear-gradient(top, #f7f7f7 0%, #ededed 98%);
+            /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom, #f7f7f7 0%, #ededed 98%);
+            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#ededed', GradientType=0);
+            /* IE6-9 */
+            border-bottom: solid 1px #ccc;
+        }
+
+        .box-cart select {
+            width: 184px;
+        }
+
+        .box-cart .inputText {
+            width: 435px;
+            margin-bottom: 10px;
+        }
+
+        .gradient-title {
+            background: #f7f7f7;
+            /* Old browsers */
+            background: -moz-linear-gradient(top, #f7f7f7 0%, #ededed 98%);
+            /* FF3.6-15 */
+            background: -webkit-linear-gradient(top, #f7f7f7 0%, #ededed 98%);
+            /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom, #f7f7f7 0%, #ededed 98%);
+            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#ededed', GradientType=0);
+            /* IE6-9 */
+        }
+
+        .space10 {
+            height: 10px;
+            clear: both;
+        }
+
+        .btn {
+            border: none;
+            cursor: pointer;
+            padding: 6px 15px;
+            border-radius: 3px;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            display: inline-block;
+            font-size: 14px;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .unit-detail-amount-control {
+            position: relative;
+            width: 126px;
+            height: 32px;
+            line-height: 32px;
+            zoom: 1;
+        }
+
+        .unit-detail-amount-control a {
+            cursor: pointer;
+            float: left;
+            width: 26px;
+            height: 26px;
+            border: 1px solid #ccc;
+            line-height: 26px;
+            overflow: hidden;
+            text-align: center;
+            color: #333;
+            background: #eee;
+        }
+
+        .unit-detail-amount-control input {
+            float: left;
+            width: 30px;
+            text-align: center;
+            height: 26px;
+            line-height: 26px;
+            border-width: 1px;
+            border-style: solid;
+            border-color: #ccc;
+            border-left: none;
+            border-right: 0;
+            outline: none;
+        }
+
+        .unit-detail-amount-control a:hover {
+            background: #ddd;
+        }
+    </style>
+    <div id="breadcrumb">
+        <div class="container">
+            <ol class="bre-new" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item">
+                        <span itemprop="name"  routerLink="/">Trang chủ</span>
+                    </a>
+                    <meta itemprop="position" content="1" />
+                </li>
+                <!---->
+
+                <!--2-->
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item">
+
+                        <span itemprop="name" routerLink="/product/purchase-history">Lịch sử mua hàng</span>
+
+                    </a>
+                    <meta itemprop="position" content="2" />
+                </li>
+
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item">
+
+                        <span itemprop="name" routerLink="/product/shopping-cart">Giỏ hàng</span>
+
+                    </a>
+                    <meta itemprop="position" content="2" />
+                </li>
+            </ol>
+        </div>
+    </div>
+    <section id="main">
+        <div class="container">
+            <div id="content">
+
+                <form method="post" enctype="multipart/form-data" action="/send-cart" onsubmit="return check_field()">
+                    <!--Buoc 1 : gio hang-->
+                    <table cellpadding="5" border="1" bordercolor="#CCCCCC" style="border-collapse:collapse; width:100%; background:#fff;" id="tbl_list_cart" >
+                        <tbody *ngIf="orderDetailList.length > 0; else noMembers">
+                        <tr style="background: #f7f7f7;
+            background: -moz-linear-gradient(top, #f7f7f7 0%, #ededed 98%);
+            background: -webkit-linear-gradient(top, #f7f7f7 0%,#ededed 98%);
+            background: linear-gradient(to bottom, #f7f7f7 0%,#ededed 98%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#ededed',GradientType=0 );
+            font-size:14px;">
+                            <td style="height:23px;">STT</td>
+                            <td width="600">Tên sản phẩm</td>
+                            <td>Giá</td>
+                            <td style="text-align: center">Số lượng</td>
+                            <td>Tổng</td>
+                            <td>Thời gian</td>
+                        </tr>
+
+                        <tr class="js-item-row" data-variant_id="0" data-item_id="294" data-item_type="deal" *ngFor="let od of orderDetailList,index as item" >
+                            <td>{{item + 1}}</td>
+                            <td class="product_cart">
+                                <img src="{{od?.productImage}}" style="vertical-align: middle; margin-right: 10px; float:left; width:50px;">
+                                <div style="margin-left:70px;">
+                                    <a ><b>{{od?.productName}}</b></a>
+                                    <p style="margin:3px 0;"></p>
+
+                                </div>
+                            </td>
+                            <td class="product_cart">
+                                <input type="hidden" class="buy-price" value="18590000">
+                                <span>{{od?.productPromotionalPrice|number:'1.0-0'}}</span>đ
+                            </td>
+                            <td style="text-align:center;">
+                                <div class="unit-detail-amount-control">
+                                    <span>{{od?.amount}}</span>
+                                </div>
+                            </td>
+                            <td class="product_cart">
+                                <b><span class="total-item-price">{{od?.productPromotionalPrice*od.amount|number:'1.0-0'}}</span> VND</b>
+                            </td>
+                            <td class="product_cart">
+                                <b><span class="total-item-price">{{od?.orderProductTime| date: 'dd/MM/yyyy hh:mm:ss'}}</span></b>
+                            </td>
+
+                            <!--              <td><a  class="button-remove-pro delete-from-cart" (click)="orderDetailObject=od" ><img src="https://firebasestorage.googleapis.com/v0/b/uploadfile-35ecc.appspot.com/o/icon_cart_del.png?alt=media&token=d1d2f5ce-a117-4a00-906f-a3d93bdb5740"  data-bs-toggle="modal" data-bs-target="#exampleModal"></a></td>-->
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">
+                                <div style="">
+                                    <input type="hidden" id="js-discount-voucher" value="0">
+                                    <input type="hidden" id="js-total-before-fee-discount" value="35490000">
+                                    <span id="js-voucher-message"></span>
+                                </div>
+                            </td>
+                            <!--td style="text-align:center;"><span id="total-quantity"></span></td-->
+                            <td colspan="4" style="line-height:22px; color:#555">
+                                <b>Tổng cộng :<span class="total-cart-price">{{this.totalPrice|number:'1.0-0'}}</span> đ</b><br>
+                                <b style="color:red; font-size:16px;">Thanh toán : <span class="sub1 total-cart-payment" id="total_value" style="color: red; font-weight: bold;" data-gtm-vis-first-on-screen-10926496_41="118" data-gtm-vis-recent-on-screen-10926496_41="4985" data-gtm-vis-total-visible-time-10926496_41="100" data-gtm-vis-has-fired-10926496_41="1">{{this.totalPrice|number:'1.0-0'}}</span> VND &nbsp; </b>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                        <ng-template #noMembers>
+                            <tr style="text-align: center">
+                                <td colspan="5"><h4 style="color: red;">Danh sách sản phẩm trống!</h4></td>
+                            </tr>
+                        </ng-template>
+                    </table>
+                    <div class="clear space10"></div>
+                    <div align="right" routerLink="/product">
+                        <input type="button" class="btn btn-blue" value="Tiếp tục mua hàng" >
+                    </div>
+                    <div class="clear space10"></div>
+                    <!--          <div class="cart-left">-->
+                    <!--            <div class="box-cart">-->
+                    <!--              <div class="title-box-cart">1. Khách hàng khai báo thông tin</div>-->
+                    <!--              <div class="content-box-cart">-->
+                    <!--                <b style="font-size:14px;">Thông tin người mua</b><br>-->
+                    <!--                <span style="font-size:11px;">Những phần đánh dấu (*) là bắt buộc</span>-->
+                    <!--                <div class="space10"></div>-->
+                    <!--                <table>-->
+                    <!--                  <tbody><tr>-->
+                    <!--                    <td width="95">Họ tên*</td>-->
+                    <!--                    <td colspan="3"><input type="text" class="inputText" name="user_info[name]" id="buyer_name" value="" fdprocessedid="t82heg"></td>-->
+                    <!--                  </tr>-->
+                    <!--                  <tr>-->
+                    <!--                    <td>Điện thoại*</td>-->
+                    <!--                    <td colspan="3"><input type="text" class="inputText" name="user_info[tel]" id="buyer_tel" value="" fdprocessedid="rzafml"></td>-->
+                    <!--                  </tr>-->
+                    <!--                  <tr>-->
+                    <!--                    <td>Địa chỉ*</td>-->
+                    <!--                    <td colspan="3"><input type="text" class="inputText" name="user_info[address]" id="buyer_address" value="" fdprocessedid="a1p14i"></td>-->
+                    <!--                  </tr>-->
+                    <!--                  <tr>-->
+                    <!--                    <td>Email *</td>-->
+                    <!--                    <td colspan="3"><input type="text" class="inputText" name="user_info[email]" id="buyer_email" value="" fdprocessedid="znqw4q"></td>-->
+                    <!--                  </tr>-->
+                    <!--                  </tbody></table>-->
+                    <!--                <div class="space20"></div>-->
+                    <!--                <div class="line"></div>-->
+                    <!--                <div class="space20"></div>-->
+                    <!--                &lt;!&ndash;&#45;&#45;<b style="font-size:14px;">Thông tin người nhận hàng</b><br/>-->
+                    <!--<div class="space10"></div>-->
+                    <!--<input name="cbxGetbuy" id="cbxGetbuy" type="checkbox" value="1" onchange="fill_ship_info()" style="display:inline-block; vertical-align:middle;"/><label for="cbxGetbuy" style="padding-left:0;">Lấy từ Thông tin Người Mua</label>-->
+                    <!--<div class="space10"></div>-->
+                    <!--<table>-->
+                    <!--<tr>-->
+                    <!--<td width="95">Họ tên*</td>-->
+                    <!--<td colspan="3"><input type="text" class="inputText" name="user_info[ship_to_name]" id="ship_to_name"/></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                    <!--<td>Điện thoại*</td>-->
+                    <!--<td colspan="3"><input type="text" class="inputText" value="" id="ship_to_tel" name="user_info[ship_to_tel]"/></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                    <!--<td>Địa chỉ*</td>-->
+                    <!--<td colspan="3"><input type="text" class="inputText" value="" id="ship_to_address" name="user_info[ship_to_address]"/></td>-->
+                    <!--</tr>-->
+                    <!--</table>-&ndash;&gt;-->
+                    <!--              </div>-->
+                    <!--              &lt;!&ndash;content-box-cart&ndash;&gt;-->
+                    <!--            </div>-->
+                    <!--            &lt;!&ndash;box-cart&ndash;&gt;-->
+                    <!--          </div>-->
+                    <!--cart-left-->
+                    <div class="cart-right">
+                        <!--            <div class="box-cart">-->
+                        <!--              <div class="title-box-cart">2. Ghi chú cho đơn hàng</div>-->
+                        <!--              <div class="content-box-cart">-->
+                        <!--                <textarea name="user_info[note]" id="ship_to_note" style="margin: 0px;width: 100%;height: 87px;box-sizing: border-box; padding: 5px;"></textarea>-->
+                        <!--              </div>-->
+                        <!--            </div>-->
+                        <!--            <div class="box-cart">-->
+                        <!--              <div class="title-box-cart">3. Chọn phương thức thanh toán</div>-->
+                        <!--              <div class="content-box-cart">-->
+                        <!--                <table>-->
+
+                        <!--                  <tbody><tr>-->
+                        <!--                    <td valign="top"><input id="pay_0_input" name="pay_method" value="1" type="radio" onchange="show('pay_0')" checked=""></td>-->
+                        <!--                    <td>-->
+                        <!--                      <label class="radio-label" for="pay_0_input" style="padding-left:0;" id="label_pay_0">Thanh toán tại cửa hàng</label>-->
+
+                        <!--                      <div class="boxContent pay-content" id="pay_0">Nhận hàng và thanh toán tiền tại cửa hàng Laptop AZ:-->
+                        <!--                        <br>-CS1: Số 18, ngõ 121, Thái Hà, Đống Đa, Hà Nội-->
+                        <!--                        <br>-CS2: Số 56 Trần Phú, Hà Đông, Hà Nội</div>-->
+
+                        <!--                    </td>-->
+                        <!--                  </tr>-->
+
+                        <!--                  <tr>-->
+                        <!--                    <td valign="top"><input id="pay_1_input" name="pay_method" value="2" type="radio" onchange="show('pay_1')"></td>-->
+                        <!--                    <td>-->
+                        <!--                      <label class="radio-label" for="pay_1_input" style="padding-left:0;" id="label_pay_1">Thanh toán khi nhận hàng (COD)</label>-->
+
+                        <!--                      <div class="boxContent pay-content" id="pay_1" style="display:none;">Trả tiền mặt khi giao hàng-->
+                        <!--                        <br>-->
+                        <!--                        <br></div>-->
+
+                        <!--                    </td>-->
+                        <!--                  </tr>-->
+
+                        <!--                  <tr>-->
+                        <!--                    <td valign="top"><input id="pay_2_input" name="pay_method" value="3" type="radio" onchange="show('pay_2')"></td>-->
+                        <!--                    <td>-->
+                        <!--                      <label class="radio-label" for="pay_2_input" style="padding-left:0;" id="label_pay_2">Thanh toán bằng chuyển khoản ngân hàng</label>-->
+
+                        <!--                      <div class="boxContent pay-content" id="pay_2" style="display:none;">Thực hiện thanh toán vào tài khoản ngân hàng của chúng tôi. Vui lòng sử dụng Mã đơn hàng của bạn trong phần Nội dung đơn đặt hàng thành công. Đơn hàng sẽ đươc giao sau khi tiền đã chuyển.-->
+                        <!--                        <br>Thông tin tài Khoản ngân hàng:-->
+                        <!--                        <br>-->
+                        <!--                        <br>– STK: 986502468;-->
+                        <!--                        <br>– Chủ TK: Hoàng Thị Yến;-->
+                        <!--                        <br>– Tại ngân hàng ACB chi nhánh Hoàng Cầu - Hà Nội.</div>-->
+
+                        <!--                    </td>-->
+                        <!--                  </tr>-->
+
+                        <!--                  <tr>-->
+                        <!--                    <td valign="top"><input id="pay_3_input" name="pay_method" value="4" type="radio" onchange="show('pay_3')"></td>-->
+                        <!--                    <td>-->
+                        <!--                      <label class="radio-label" for="pay_3_input" style="padding-left:0;" id="label_pay_3">Thanh toán trả góp</label>-->
+
+                        <!--                      <div class="boxContent pay-content" id="pay_3" style="display:none;">Hỗ trợ trả góp qua thẻ tín dụng Visa, Master, JCB.-->
+                        <!--                        <br></div>-->
+
+                        <!--                    </td>-->
+                        <!--                  </tr>-->
+
+                        <!--                  </tbody></table>-->
+                        <!--              </div>-->
+                        <!--            </div>-->
+
+                        <!--            <div class="product-actions-single">-->
+                        <!--              <button type="submit" id="btn-submit" class="action-button green" style="color: #fff;text-transform: uppercase;font-weight: bold;background: #ff8f00;border: solid 1px #d27a0a;padding: 11px 40px;display: block;margin: 10px auto;border-radius: 3px;-moz-border-radius: 3px;-webkit-border-radius: 3px;cursor: pointer;" fdprocessedid="ch2gom" routerLink="/product/success" >Gửi đơn hàng</button>-->
+                        <!--              <input type="hidden" name="send_order" value="yes">-->
+                        <!--            </div >-->
+
+                        <div id="buttonPayment"></div>
+                    </div>
+                    <!--cart-right-->
+                </form>
+                <!--        <div class="container" style="margin-top: 5%">-->
+                <!--          <div class="d-flex justify-content-center">-->
+                <!--            <nav *ngIf="teamPage !== null" aria-label="Page navigation example">-->
+                <!--              <ul class="pagination justify-content-end">-->
+                <!--                <li class="page-item" [ngClass]="teamPage.first ? 'disabled': ''"><a-->
+                <!--                  class="page-link text-info text-info" type="button" (click)="goToPage(0)"-->
+                <!--                  onfocus="this.style.borderColor='#2b80dd';this.style.boxShadow='none';this.style.outline='2px solid #2b80dd';"-->
+                <!--                  onblur="this.style.borderColor='#2b80dd';this.style.outline='none';"-->
+                <!--                  style="color: black !important;">Trang đầu</a></li>-->
+                <!--                <li class="page-item"><a class="page-link text-info text-info" (click)="previousPageTen()"-->
+                <!--                                         *ngIf="p >9"-->
+                <!--                                         onfocus="this.style.borderColor='#2b80dd';this.style.boxShadow='none';this.style.outline='2px solid #2b80dd';"-->
+                <!--                                         onblur="this.style.borderColor='#ced4da';this.style.outline='none';"-->
+                <!--                                         style="color: black !important;"><< </a>-->
+                <!--                </li>-->
+                <!--                <li class="page-item"><a class="page-link text-info text-info" (click)="previousPage()"-->
+                <!--                                         *ngIf="p <=9 && p>0"-->
+                <!--                                         onfocus="this.style.borderColor='#2b80dd';this.style.boxShadow='none';this.style.outline='2px solid #2b80dd';"-->
+                <!--                                         onblur="this.style.borderColor='#ced4da';this.style.outline='none';"-->
+                <!--                                         style="color: black !important;">< </a>-->
+                <!--                </li>-->
+                <!--                <li class="page-item" *ngFor="let page of pages" [ngClass]="{'active': page === p }">-->
+                <!--                  <a class="page-link" (click)="goToPage(page)"-->
+                <!--                     style="font-weight: bold; border: 1px solid #DEE2E6;"-->
+                <!--                     onfocus="this.style.borderColor='black';this.style.boxShadow='none';this.style.outline='2px solid black';"-->
+                <!--                     onblur="this.style.borderColor='#ced4da';this.style.outline='none';"-->
+                <!--                     [ngStyle]="{'background-color': page === p ? '#2b80dd' : '#FFFFFF', 'color': page === p ? '#FFFFFF' : 'black'}">-->
+                <!--                    {{ page + 1 }}-->
+                <!--                  </a>-->
+                <!--                </li>-->
+
+                <!--                <li class="page-item"><a class="page-link text-info text-info" (click)="nextPage()"-->
+                <!--                                         *ngIf="(p <= 9 && totalPage > 0 && this.p < this.totalPage - 1) || (p >= totalPage - 1 && p <= totalPage && totalPage > 1 && p < totalPage - 4 && totalPage > 10 && this.p < this.totalPage - 1) || (p >= (totalPage - 10) && p <= totalPage && totalPage > 10 && p > totalPage - 11 && this.p < this.totalPage - 1) "-->
+                <!--                                         onfocus="this.style.borderColor='#2b80dd';this.style.boxShadow='none';this.style.outline='2px solid #2b80dd';"-->
+                <!--                                         onblur="this.style.borderColor='#ced4da';this.style.outline='none';"-->
+                <!--                                         style="color: black !important;">></a>-->
+                <!--                </li>-->
+                <!--                <li class="page-item"><a class="page-link text-info text-info" (click)="nextPageTen()"-->
+                <!--                                         *ngIf="p < totalPage - 10 && p >9"-->
+                <!--                                         onfocus="this.style.borderColor='#2b80dd';this.style.boxShadow='none';this.style.outline='2px solid #2b80dd';"-->
+                <!--                                         onblur="this.style.borderColor='#ced4da';this.style.outline='none';"-->
+                <!--                                         style="color: black !important;">>></a>-->
+                <!--                </li>-->
+                <!--                <li class="page-item" [ngClass]="teamPage.last ? 'disabled': ''"><a-->
+                <!--                  class="page-link text-info text-info" type="button" (click)="goToPage(totalPage - 1)"-->
+                <!--                  onfocus="this.style.borderColor='#2b80dd';this.style.boxShadow='none';this.style.outline='2px solid #2b80dd';"-->
+                <!--                  onblur="this.style.borderColor='#2b80dd';this.style.outline='none';"-->
+                <!--                  style="color: black !important;">Trang cuối</a></li>-->
+                <!--                &lt;!&ndash;              <li class="page-item" [ngClass]="teamPage.last ? 'disabled': ''"><a&ndash;&gt;-->
+                <!--                &lt;!&ndash;                class="page-link text-info text-info" type="button" (click)="goToPage(totalPage - 1)"&ndash;&gt;-->
+                <!--                &lt;!&ndash;                onfocus="this.style.borderColor='#2b80dd';this.style.boxShadow='none';this.style.outline='2px solid #2b80dd';"&ndash;&gt;-->
+                <!--                &lt;!&ndash;                onblur="this.style.borderColor='#2b80dd';this.style.outline='none';"&ndash;&gt;-->
+                <!--                &lt;!&ndash;                style="color: #2b80dd !important;">Trang cuối</a></li>&ndash;&gt;-->
+
+                <!--              </ul>-->
+                <!--            </nav>-->
+                <!--          </div>-->
+                <!--        </div>-->
+                <p>&nbsp;</p>
+
+                <!--        <script src="/template/t2021/script/jquery.js"></script>-->
+                <!--        <script>-->
+                <!--          function show(id) {-->
+                <!--            $(".pay-content").hide();-->
+                <!--            $("#" + id).show();-->
+                <!--            $(".radio-label").removeClass("current");-->
+                <!--            $("#label_" + id).addClass("current");-->
+                <!--          }-->
+
+                <!--          function open_tax_form(check_box_id, tax_form_id) {-->
+                <!--            var chk = document.getElementById(check_box_id).checked;-->
+                <!--            if (chk) {-->
+                <!--              document.getElementById(tax_form_id).style.display = "block";-->
+                <!--            } else {-->
+                <!--              document.getElementById(tax_form_id).style.display = "none";-->
+                <!--            }-->
+                <!--          }-->
+
+                <!--          function fill_ship_info() {-->
+                <!--            document.getElementById('ship_to_name').value = document.getElementById('buyer_name').value;-->
+                <!--            document.getElementById('ship_to_tel').value = document.getElementById('buyer_tel').value;-->
+                <!--            document.getElementById('ship_to_address').value = document.getElementById('buyer_address').value;-->
+                <!--          }-->
+                <!--        </script>-->
+                <style>
+                    label:before {
+                        content: '';
+                        display: none;
+                    }
+                </style>
+                <!--        <script type="text/javascript">-->
+                <!--          function removeAllPro() {-->
+                <!--            var r = confirm("Bạn muốn xóa toàn bộ sản phẩm trong giỏ hàng?");-->
+                <!--            if (r == true) {-->
+                <!--              hura_erase_cookie("shopping_cart_store");-->
+                <!--              location.href = "/cart";-->
+                <!--            }-->
+                <!--          }-->
+                <!--        </script>-->
+
+
+                <div class="clear"></div>
+            </div>
+            <!--content-->
+        </div>
+    </section>
+
+
+</main>
+<div (click)="onHead()" id="toTop" style="display: block;"><i class="fa fa-arrow-up" aria-hidden="true" style="line-height: 34px;"></i></div>
+
+</body>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tài liệu hướng dẫn</h5>
+                <button type="button" class="btn-close d-flex justify-content-center align-items-center "
+                        data-bs-dismiss="modal" aria-label="Close"
+                        style="font-size: 1em; width: 2rem; height: 2rem; padding: 0 ;border-radius: 15%;background-color: #DEE1E6; padding-bottom: 1%;  text-align: center;line-height: 1; border: none;"
+                        onmouseover="this.style.backgroundColor='#ED2248'; this.style.color='#FFF';"
+                        onmouseout="this.style.backgroundColor='#DEE1E6'; this.style.color='#5F6368';"
+                        onfocus="this.style.boxShadow='none';this.style.outline='2px solid #CFF4FC';"
+                        onblur="this.style.outline='none';"></button>
+            </div>
+            <div class="modal-body">
+                <!--        <div class="product_cart">-->
+                <!--          <img src="{{orderDetailObject?.productImage}}" style="vertical-align: middle; margin-right: 10px; float:left; width:50px;">-->
+                <!--          <div style="margin-left:70px;">-->
+                <!--            <a ><b>{{orderDetailObject?.productName}}</b></a>-->
+                <!--            <p style="margin:3px 0;"></p>-->
+
+                <!--          </div>-->
+                <!--        </div>-->
+                <p>Bạn có chắc sẽ xóa không ?
+                </p>
+                <div class="product_cart">
+                    <img src="{{orderDetailObject?.productImage}}" style="vertical-align: middle; margin-right: 10px; float:left; width:50px;">
+                    <div style="margin-left:70px;">
+                        <a ><b style="color: red; font-weight: bold">{{orderDetailObject?.productName}}</b></a>
+                        <p style="margin:3px 0;"></p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                        (click)="deleteOrderDetail(orderDetailObject.orderDerailId)">
+                    Đồng ý
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+</html>
+
+

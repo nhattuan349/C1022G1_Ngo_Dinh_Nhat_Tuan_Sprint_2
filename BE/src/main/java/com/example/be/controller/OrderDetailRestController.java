@@ -103,6 +103,7 @@ public class OrderDetailRestController {
     @PatchMapping("/update-buy-success")
     public ResponseEntity<HttpStatus> updateBuySuccess(@RequestParam Long accountId) {
         orderDetailService.updateBuySuccess(accountId);
+        orderDetailService.updateAmountShoppingCartCustomer();
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

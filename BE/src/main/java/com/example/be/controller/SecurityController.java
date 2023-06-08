@@ -31,14 +31,6 @@ public class SecurityController {
     @Autowired
     private IAccountService accountService;
 
-    /**
-     * Created by: TienP
-     * Date created: 29/03/2023
-     * Function:  authenticate user
-     * @param: loginRequest
-     * @return: HttpStatus.No_Content if result is error or HttpStatus.OK is result is not error
-     */
-
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@RequestBody @Valid LoginRequest loginRequest) {
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword());

@@ -33,4 +33,6 @@ public interface IOrderDetailService {
     IOrderDetailDto getTotal(@Param("id") Long id);
 
     List<IOrderDetailDto> amountShoppingCart(@Param("id") Long id);
+
+    void updateAmountShoppingCartCustomer();
 }
